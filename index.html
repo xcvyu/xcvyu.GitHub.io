@@ -775,9 +775,9 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					}
 					document.getElementById('EarthEngines').appendChild(preview);
 				},
-				download:(name)=>{
+				download:(name,origin=document.getElementById("EarthEnginesContent").value)=>{
 					let EarthEnginesAnchor = document.createElement("a"); 
-					EarthEnginesAnchor.href = window.URL.createObjectURL(new Blob([document.getElementById("EarthEnginesContent").value]));
+					EarthEnginesAnchor.href = window.URL.createObjectURL(new Blob([origin]));
 					EarthEnginesAnchor.download = name;
 					EarthEnginesAnchor.target ="_blank";
 					EarthEnginesAnchor.click(); 
@@ -7006,25 +7006,14 @@ $("html").html();</code></pre>
 					function sourcetoggle(toggler) {
 						if (toggler.open) {
 							document.getElementById("SourceCode").innerText=window.sourcer;
-					  } else {
+						} else {
 							document.getElementById("SourceCode").innerText= "";
-					  }
-					}
-					function source_download(obj){ 
-						let source_blob = new Blob([obj]);
-						let source_anchor = document.createElement("a");
-						source_anchor.href = window.URL.createObjectURL(source_blob);
-						source_anchor.download = "index.html";
-						source_anchor.target ="_blank";
-						source_anchor.style.display = "none"; // just to be safe! 
-						document.body.appendChild(source_anchor);
-						source_anchor.click();
-						document.body.removeChild(source_anchor);
+						}
 					}
 				</script>
 				<pre><code id="SourceCode" language="html"></code></pre>
 			</details>
-			<button onclick="source_download(window.sourcer)">download!</button>
+			<button onclick="EarthEngines.download('index.html',window.sourcer)">download!</button>
 		</li>
 	</ul>
 </li>
