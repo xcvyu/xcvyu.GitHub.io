@@ -433,6 +433,9 @@
 			NodeMove(Node,document.getElementById("bookmarks_before"),"before");
 		}
 	);
+	fetch(window.location.href)
+		.then(response => response.text())
+		.then(text => {window.sourcer=text});
 	// for (let i of document.head.childNodes)if(i.nodeType == 8 && i.nodeValue==" cssInJs:begin ")NodeMove(opacityor,i,"after");
 	fontfamily=[
 		{
@@ -6942,11 +6945,11 @@ function edit () {
 			<ul>
 				<li>
 					<pre><code class="language-javascript">// by xmlhttp
-let xhr = new XMLHttpRequest(); // 创建 XMLHttpRequest 对象
+const xhr = new XMLHttpRequest(); // 创建 XMLHttpRequest 对象
 xhr.open('GET', window.location.href, true); // 使用 GET 请求获取脚本文件
 xhr.onreadystatechange = function() {
 	if (xhr.readyState === 4 && xhr.status === 200) {
-	 console.log(xhr.responseText); // 获取"最真实的html源码"
+		console.log(xhr.responseText); // 获取"最真实的html源码"
 	}
 };
 xhr.send(); // 发送请求
@@ -6978,43 +6981,7 @@ $("html").html();</code></pre>
 				</li>
 			</ul>
 		</li>
-		<li><details ontoggle="sourcetoggle(this)"><summary>finally result</summary>
-				<script>
-					// function GetSource(src){
-					// 	const xhr = new XMLHttpRequest();
-					// 	xhr.open('GET', src, true);
-					// 	xhr.onreadystatechange = function() {
-					// 		if (xhr.readyState === 4 && xhr.status === 200) {
-					// 		return xhr.responseText;
-					// 		}
-					// 	};
-					// 	xhr.send(); // 发送请求
-					// }
-					function GetSource(src){
-						let xhr = new XMLHttpRequest();
-						xhr.open("GET", src , true);
-						// xhr.responseType = "document";
-						xhr.overrideMimeType("text/xml");
-						let sourcer=null;
-						xhr.onload = function () {
-							window.sourcer = xhr.response;
-						}
-						xhr.send();
-						return;
-					}
-					GetSource(window.location.href);
-					function sourcetoggle(toggler) {
-						if (toggler.open) {
-							document.getElementById("SourceCode").innerText=window.sourcer;
-						} else {
-							document.getElementById("SourceCode").innerText= "";
-						}
-					}
-				</script>
-				<pre><code id="SourceCode" language="html"></code></pre>
-			</details>
-			<button onclick="EarthEngines.download('index.html',window.sourcer)">download!</button>
-		</li>
+		<li><details ontoggle="document.getElementById('Sourcer').innerText=(this.open)?window.sourcer:''"><summary>finally result</summary><pre><code id="Sourcer"></code></pre></details><button onclick="EarthEngines.download('index.html',window.sourcer)">download!</button></li>
 	</ul>
 </li>
 <li>2023.01.23
