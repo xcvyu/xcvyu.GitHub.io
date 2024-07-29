@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- <link rel="stylesheet" href="./sspai.css"> -->
+<link href="https://cubox.pro/article/css/reader.css" rel="stylesheet" />
+<style>
+:root {
+	--back: #FFF;
+	--box-shadow: #DDDDDD;
+	--bg: #FAFAFA;
+	--tr: #F2F2F2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--back: #303030;
+		--box-shadow: #222222;
+		--bg: #000;
+		--tr: #0D0D0D;
+	}
+}
+
+body {
+	background: var(--bg);
+	/* background: url("./fufuer.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover; */
+}
+
+.card {
+	margin: 20px 0;
+	background: var(--back);
+	padding: 20px;
+	border-radius: 6px;
+}
+
+.card:hover {
+	box-shadow: 0px 2px 16px var(--box-shadow);
+}
+</style>
+<!-- LaTeX嵌入网页 -->
+<script id="MathJax-script" async src="https://cdn.bootcdn.net/ajax/libs/mathjax/4.0.0-alpha.1/es5/tex-svg.js"></script>
+<script>
+MathJax = {
+	tex: {
+		//inlineMath: [['$', '$'], ['\\(', '\\)']]
+		inlineMath: [['$', '$'], ['\\$$', '\\$$']]
+	},
+	svg: {
+		fontCache: 'global'
+	}
+};
+</script>
+<!--highlight.js，负责代码高亮-->
+<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css#Github" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script>
+	window.onload=hljs.highlightAll;
+</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<div id="inbox" class="card">
+## 这里是你的 markdown 内容。
+***hello,world!***
+- 写少数派投稿
+- 看世界杯预选赛
+
+> It's [sspai!](https://sspai.com)
+
+```javascript
+console.log("hello,world");
+```
+
+$$ E = m c^2 $$
+</div>
+<div class="card">
+<details open><summary>hello,</summary>world!</details>
+<details><summary>hello,</summary>world!</details>
+</div>
+<script>
+    document.getElementById("inbox").innerHTML=marked.parse(document.getElementById("inbox").innerHTML);
+</script>
+
+<style>
+	textarea {
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	}
+
+	textarea {
+	padding: 10px;
+	max-width: 100%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 1px #999;
+	}
+</style>
+<div class="card" id="inputer">
+	<script>
+		let inputer_count=0;
+		function inputer_upload(){
+			//这个函数的功能是载入本地文件到速记框中
+			let inputer_reader = new FileReader();//新建一个文件读取器
+			inputer_reader.onload = function(){//指定文件上传完成时的行为
+				document.getElementById("inputer_content").value=this.result;//document.getElementById("inputer_content").value就是下文中输入框的值，this.result是JavaScript特有写法，this指代inputer_reader，result是读取到文件的内容。
+			}
+			inputer_reader.readAsText(document.getElementById("filePicker_inputer").files[0]);//读取文件上传器中的内容到文件读取器中
+		}
+		function inputer_download(){ 
+			//这个函数的功能是将速记框中的内容下载到本地文件中
+			//主要思路是先生成一个链接，其指向的内容是速记框中的内容，然后再模拟点击这个链接从而实现下载
+			let inputer_blob = new Blob([document.getElementById("inputer_content").value]);
+			let inputer_anchor = document.createElement("a"); 
+			inputer_anchor.href = window.URL.createObjectURL(inputer_blob);
+			inputer_anchor.download = document.getElementById("inputer_name").value;
+			inputer_anchor.target ="_blank";
+			inputer_anchor.style.display = "none"; // just to be safe! 
+			document.body.appendChild(inputer_anchor); 
+			inputer_anchor.click(); 
+			document.body.removeChild(inputer_anchor); 
+		}
+		function inputer_runCode(obj){
+			//这个函数的功能是在新页面中运行速记框中的 html 文档
+			let inputer_window=window.open();//打开一个新窗口并与变量 inputer_window 绑定
+			inputer_window.opener = null;//新窗口链接为空
+			inputer_window.document.write(obj);//向新窗口中写入内容
+			inputer_window.document.close();//关闭新窗口，当然这是最后的工作
+		}
+		function inputer_insert(obj,identify){
+			//这个函数的功能是在本页面中插入速记框中的 html 文档
+			let inputer_inserter=document.createElement("div");//新建一个元素
+			inputer_inserter.id=identify;//元素的id
+			inputer_inserter.innerHTML = obj;//元素的内容就是速记板的内容
+			document.getElementById('inputer').appendChild(inputer_inserter);//添加元素
+			inputer_scriptfinder(document.getElementById(identify));
+			inputer_count+=1;
+			document.getElementById("inputer_deleter").innerHTML="delete:"+inputer_count;
+		}
+			function inputer_scriptfinder(obj){
+				//如果直接插入html的话由于安全策略其中的脚本不会被执行，所以需要调用此函数另外重新运行
+				//原理是在原 script 标签内插入新的 script 标签绕过 innetHTML 安全策略，从而执行
+				for(let i of obj.children){
+					if(i.tagName=='SCRIPT'){
+						let g = document.createElement("script");
+						g.text = i.innerHTML;
+						if(i.src!=''){
+							let scriptAttribute=["src","charset","async","defer"];
+							for(let j of scriptAttribute)g.setAttribute(j,i.getAttribute(j));
+						}
+						i.before(g);
+						g.remove();
+					}
+					inputer_scriptfinder(i);
+				}
+			}
+		function inputer_delete(){
+			document.querySelector('#inputer :last-child').remove();
+			inputer_count-=1;
+			document.getElementById("inputer_deleter").innerHTML="delete:"+inputer_count;
+		}
+	</script>
+	<input type="file" name="file" id="filePicker_inputer" onchange="inputer_show()"  /><br />
+	<textarea id="inputer_content" cols="40%" rows="15"></textarea><br />
+	<textarea id="inputer_name" cols="40%" rows="1">index.html</textarea><br />
+	<button type="button" onclick="inputer_download()">download</button>
+	<button type="button" onclick="inputer_runCode(this.offsetParent.getElementsByTagName('textarea')[0].value)">new window open</button>
+	<button type="button" onclick="inputer_insert(document.getElementById('inputer_content').value,document.getElementById('inputer_name').value)">insert!</button>
+	<button type="button" onclick="inputer_delete()" id="inputer_deleter">delete：0</button>
+</div>
