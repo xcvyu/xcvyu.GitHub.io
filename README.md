@@ -1,0 +1,1 @@
+I'm glad to create the repositoriy to hold the website,[xcvyu.github.io](https;//xcvyu.github.io).The website holds my konwledge of html,CSS and JavaScript;and also my diary;and my todolist;and so on.
