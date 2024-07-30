@@ -20,7 +20,7 @@ let Engines={
 		}
 		target.appendChild(preview);
 	},
-	download:(obj,name)=>{
+	download:(name,obj)=>{
 		let EnginesAnchor = document.createElement("a"); 
 		EnginesAnchor.href = window.URL.createObjectURL(new Blob([obj]));
 		EnginesAnchor.download = name;
@@ -66,8 +66,8 @@ let Engines={
 	}
 };
 function EnginesEnjoy(){
-	let val=()=>document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value;
-	u = Engines,n=(value)=>{Engines.newopen(value)},d=u.delete.bind(u),s=(name,list=val())=>{u.download.call(u,list,name)},i=(list=val())=>{u.insert.call(u,list)};
+	let val = () => document.getElementsByClassName("0")[document.getElementsByClassName("0").length - 1].value;
+	u = Engines, n = (value) => { Engines.newopen(value) }, d = u.delete.bind(u), s = (name, obj = val()) => { u.download.call(u, name, obj) }, i = (obj = val()) => { u.insert.call(u, obj) };
 	let up=(isimg=0)=>{
 		let uploader=document.createElement("input");
 		uploader.type="file";
