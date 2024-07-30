@@ -2419,6 +2419,17 @@ int RPN(){
 	cout<<x.top();
 	return 0;
 }
+int gcd(int a, int b)
+{
+	if (!(a % b))
+		return b;
+	else
+		return gcd(b, a % b);
+}
+int lcm(int a, int b)
+{
+	return a * b / gcd(a, b);
+}
 				--></pre></details>
 			</li>
 			<li><details><summary>高精度加法</summary>
@@ -3027,6 +3038,298 @@ int main()
 }
 				--></pre></details>
 			</li>
+			<li><details><summary>graph</summary>
+				<pre class="cpphelp"><!--// Binary Tree Traversal
+#include <cstdio>
+#include <cstring>
+#include <vector>
+#include <queue>
+#include <algorithm>
+using namespace std;
+int n, m, answer;
+vector<int> blog[1 << 17];
+bool visiter[1 << 17];
+queue<int> q;
+void dfs(int x, int times)
+{
+	if (times == n)
+	{
+		return;
+	}
+	printf("%d ", x);
+	visiter[x] = 1;
+	for (auto i : blog[x])
+	{
+		if (!visiter[i])
+			dfs(i, times + 1);
+	}
+}
+void bfs(int x)
+{
+	memset(visiter, 0, sizeof(visiter));
+	visiter[x] = 1;
+	q.push(x);
+	while (!q.empty())
+	{
+		int u = q.front();
+		q.pop();
+		printf("%d ", u);
+		for (auto i : blog[u])
+		{
+			if (!visiter[i])
+			{
+				visiter[i] = 1;
+				q.push(i);
+			}
+		}
+	}
+}
+int main()
+{
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < m; i++)
+	{
+		int X, Y;
+		scanf("%d%d", &X, &Y);
+		blog[X].push_back(Y);
+	}
+	for (int i = 0; i < m; i++)
+		sort(blog[i].begin(), blog[i].end());
+	dfs(1, 0);
+	printf("\n");
+	bfs(1);
+}--></pre>
+			</details></li>
+			<li><details>P1364<summary></summary>
+			<pre><!--//P1364
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+struct Node{
+	int w, l, r, a;
+} tree[128];
+bool vis[128];
+int answerfinally=0x3f3f3f3f,answer;
+inline void dfs(int x,int distance){
+	answer += tree[x].w*distance;
+	int l = tree[x].l, r = tree[x].r, a = tree[x].a;
+	if(l&&!vis[l]){
+		vis[l] = 1;
+		dfs(l,distance+1);
+	}
+	if(r&&!vis[r]){
+		vis[r] = 1;
+		dfs(r,distance+1);
+	}
+	if(a&&!vis[a]){
+		vis[a] = 1;
+		dfs(a,distance+1);
+	}
+}
+int main(){
+	int n;
+	cin >> n;
+	for (int i = 1; i <= n;i++){
+		cin >> tree[i].w >> tree[i].l >> tree[i].r;
+		tree[tree[i].l].a = i;
+		tree[tree[i].r].a = i;
+	}
+	for (int i = 1; i <= n;i++){
+		answer = 1;
+		memset(vis, 0, sizeof(vis));
+		vis[i] = 1;
+		dfs(i, 0);
+		answerfinally = min(answer, answerfinally);
+	}
+	cout << answerfinally-1;
+}--></pre></details></li>
+			<li><details><summary>DSU</summary>
+				<pre class="cpphelp"><!--//DSU
+int ancestor[5000], m, n, p;
+int finds(int x)
+{
+	return x == ancestor[x] ? x : finds(ancestor[x]);
+	// return x == ancestor[x]?x:ancestor[x] = finds(ancestor[x]);
+}
+int main()
+{
+	cin >> n >> m >> p;
+	for (int i = 1; i <= n; i++)
+		ancestor[i] = i;
+	for (int i = 1; i <= m; i++)
+	{
+		int Mi, Mj;
+		cin >> Mi >> Mj;
+		ancestor[finds(Mi)] = finds(Mj);
+	}
+	for (int i = 1; i <= p; i++)
+	{
+		int Pi, Pj;
+		cin >> Pi >> Pj;
+		if (finds(Pi) == finds(Pj))
+			cout << "Yes" << endl;
+		else
+			cout << "No" << endl;
+	}
+	return 0;
+}--></pre>
+			</details></li>
+			<li><details><summary>BinHexOct</summary>
+			<pre><!--//BinHexOct
+#include <iostream>
+using namespace std;
+
+namespace fir
+{
+#include <cmath>
+}
+
+int pow(int x, int y)
+{
+	int ans = 1;
+	while (y > 0)
+	{
+		if (y & 1 != 0)
+			ans *= x;
+		x *= x;
+		y >>= 1;
+	}
+	return ans;
+}
+
+int main()
+{
+	string iner;
+	int n, m, a = 0, j = 0, answer[1024] = {}, flag = 0;
+	cin >> n >> iner >> m;
+	if (iner[0] == '-')
+		flag = 1;
+	for (int i = flag; i < iner.length(); i++)
+		a += ((iner[i] >= 'A') ? (iner[i] - 'A' + 10) : (iner[i] - '0')) * fir::pow(n, iner.length() - i - 1);
+	if (flag)
+		a = -a;
+	while (a != 0)
+	{
+		answer[j++] = a % m;
+		a /= m;
+		if (m < 0 && answer[j - 1] < 0)
+		{
+			answer[j - 1] -= m;
+			a++;
+		}
+	}
+	for (int i = j - 1; i >= 0; i--)
+		cout << ((int)(answer[i] >= 10) ? (char)(answer[i] - 10 + 'A') : (char)(answer[i] + '0'));
+	return 0;
+}--></pre>
+			</details></li>
+			<li><details><summary>BinHexOct2</summary>
+				<pre><!--//BinHexOct2
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int pow(int x, int y)
+{
+	int ans = 1;
+	while (y > 0)
+	{
+		if (y & 1 != 0)
+			ans *= x;
+		x *= x;
+		y >>= 1;
+	}
+	return ans;
+}
+
+int Char2Int(char target)
+{
+	return (target >= '0' && target <= '9') ? (target - '0') : (target - 'A' + 10);
+}
+
+char Int2Char(int target)
+{
+	return (target < 10) ? (target + '0') : (target - 10 + 'A');
+}
+
+int ConverN2T(string str, int n)
+{
+	int number = 0, flag = 0;
+	if (str[0] == '-')
+		flag = 1;
+	for (int i = flag; i < str.size(); i++)
+	{
+		number += Char2Int(str[i]) * pow(n, str.size() - i - 1);
+	}
+	if (flag)
+		number = -number;
+	return number;
+}
+
+void ConvertT2M(int number, int m)
+{
+	stack<char> s;
+	while (number != 0)
+	{
+		bool flag = 0;
+		if (m < 0 && (number % m < 0))
+		{
+			s.push(Int2Char(number % m - m));
+			flag = 1;
+		}
+		else
+			s.push(Int2Char(number % m));
+		number /= m;
+		if (flag)
+			number++;
+	}
+	if (s.empty())
+	{
+		cout << 0;
+	}
+	while (!s.empty())
+	{
+		cout << s.top();
+		s.pop();
+	}
+	cout << endl;
+}
+
+int main()
+{
+	string iner;
+	int n, m;
+	cin >> n >> iner >> m;
+	ConvertT2M(ConverN2T(iner, n), m);
+	return 0;
+}--></pre>
+				</details></li>
+			<li><details><summary>前缀和</summary>
+				<pre class="cpphelp"><!--// PrefixSum，P8218
+#include <iostream>
+using namespace std;
+
+int a[1 << 17], s[1 << 17];
+int main()
+{
+	int m, n;
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+	{
+		cin >> a[i];
+		s[i] = s[i - 1] + a[i];
+	}
+	cin >> m;
+	for (int i = 0; i < m; i++)
+	{
+		int l, r;
+		cin >> l >> r;
+		cout << s[r] - s[l - 1] << endl;
+	}
+	return 0;
+}--></pre>
+			</details></li>
 			<li>时间复杂度：计算机操作速度为 10 MOPS——100 MOPS(1\*10^7OPS——1\*10^8OPS) （一条代码执行一次为1OPS）每秒，那么超出1s就会报TLE。</li>
 			<li>空间复杂度：变量/数组（数据类型*数组长度），占用超出题目所给空间（一般为125MB）就会报SLE。</li>
 			<li>一些算法
