@@ -381,6 +381,7 @@
 	window.loadedscript=[];
 	function NodeMove(origin , target , method){
 		eval(`target.${method}(origin)`.replace("inner","appendChild"));
+		//NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before")
 	}
 	function include(src,init=function(){},method="scriptag"){
 		function fetcher(processor=function(){}){
@@ -717,6 +718,22 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			let currentDate = Date.now();
 		} while (currentDate - date < milliseconds);
 	}
+	function deepClone(source) {
+		if (typeof source !== 'object' || source == null) {
+			return source;
+		}
+		const target = Array.isArray(source) ? [] : {};
+		for (const key in source) {
+			if (Object.prototype.hasOwnProperty.call(source, key)) {
+				if (typeof source[key] === 'object' && source[key] !== null) {
+					target[key] = deepClone(source[key]);
+				} else {
+					target[key] = source[key];
+				}
+			}
+		}
+		return target;
+	}
 	inited = false;
 	async function init() {
 		if(inited)return;
@@ -759,31 +776,35 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 <ul id="rooter">
 	<li id="EarthEngines">
 		<script>
-			let EarthEnginesDeleter=0,EarthEnginesVisibler=0;
 			let EarthEngines={
-				upload:(obj)=>{
+				base:document.getElementById('EarthEngines'),
+				Deleter:0,
+				visibler:0,
+				upload:function (origin,target=this.base){
 					let EarthEnginesReader = new FileReader();
 					EarthEnginesReader.onload = function(){
-						document.getElementById("EarthEnginesContent").value=this.result;
+						EarthEnginesContent=document.createElement("textarea");
+						EarthEnginesContent.className="0";
+						EarthEnginesContent.value=this.result;
+						target.appendChild(EarthEnginesContent);
 					}
-					EarthEnginesReader.readAsText(obj.files[0]);
+					EarthEnginesReader.readAsText(origin.files[0]);
 				},
-				imgupload:(obj)=>{
+				imgupload:function (origin,target=this.base){
 					let preview = document.createElement("img");
-					let file = obj.files[0];
-					let reader = new FileReader();
-					reader.addEventListener("load",() => {preview.src = reader.result;},false,);
+					let file = origin.files[0];
+					let reader = new FileReader().addEventListener("load",() => {preview.src = reader.result;},false,);
 					if (file) {
 						reader.readAsDataURL(file);
 					}
-					document.getElementById('EarthEngines').appendChild(preview);
+					target.appendChild(preview);
 				},
-				download:(name,origin=document.getElementById("EarthEnginesContent").value)=>{
+				download:(obj,name)=>{
 					let EarthEnginesAnchor = document.createElement("a"); 
-					EarthEnginesAnchor.href = window.URL.createObjectURL(new Blob([origin]));
+					EarthEnginesAnchor.href = window.URL.createObjectURL(new Blob([obj]));
 					EarthEnginesAnchor.download = name;
 					EarthEnginesAnchor.target ="_blank";
-					EarthEnginesAnchor.click(); 
+					EarthEnginesAnchor.click();
 				},
 				newopen:(obj)=>{
 					let EarthEnginesWindow=window.open();
@@ -791,12 +812,12 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					EarthEnginesWindow.document.write(obj);
 					EarthEnginesWindow.document.close();
 				},
-				insert:function (obj){
+				insert:function (elements,target=this.base){
 					let EarthEnginesInserter=document.createElement("div");
-					EarthEnginesInserter.innerHTML = obj;
-					document.getElementById('EarthEngines').appendChild(EarthEnginesInserter);
+					EarthEnginesInserter.innerHTML = elements;
+					target.appendChild(EarthEnginesInserter);
 					this.scriptfinder(EarthEnginesInserter);
-					EarthEnginesDeleter+=1;
+					this.Deleter+=1;
 				},
 				scriptfinder:function (obj){
 					for(let i of obj.children){
@@ -816,47 +837,32 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					}
 				},
 				visible:()=>{
-					if(EarthEnginesVisibler)document.querySelector('#EarthEngines').style.display = 'block';
-					if(!EarthEnginesVisibler)document.querySelector('#EarthEngines').style.display = 'none';
-					EarthEnginesVisibler=!EarthEnginesVisibler;
+					if(this.visibler)document.querySelector('#EarthEngines').style.display = 'block';
+					if(!this.visibler)document.querySelector('#EarthEngines').style.display = 'none';
+					this.visibler=!this.visibler;
 				},
-				delete:()=>{
+				delete:function (){
 					// document.querySelector('#EarthEngines :last-child').remove();
-					document.getElementById("EarthEngines").lastChild.remove();
-					EarthEnginesDeleter-=1;
+					this.base.lastChild.remove();
+					this.Deleter-=1;
 				},
-				isdel:()=>{alert("delete:"+EarthEnginesDeleter)}
+				isdel:()=>{alert("delete:"+this.Deleter)}
 			};
-			function deepClone(source) {
-				if (typeof source !== 'object' || source == null) {
-					return source;
-				}
-				const target = Array.isArray(source) ? [] : {};
-				for (const key in source) {
-					if (Object.prototype.hasOwnProperty.call(source, key)) {
-						if (typeof source[key] === 'object' && source[key] !== null) {
-							target[key] = deepClone(source[key]);
-						} else {
-							target[key] = source[key];
-						}
-					}
-				}
-				return target;
-			}
 			function EarthEngines_enjoy(){
-				let val = document.getElementById('EarthEnginesContent').value,u = deepClone(EarthEngines),i=(value=val)=>{EarthEngines.insert(value)},n=(value=val)=>{EarthEngines.newopen(value)},s=u.download,d=u.delete;
+				u = EarthEngines,n=(value)=>{EarthEngines.newopen(value)},d=u.delete.bind(u),
+				s=(list=document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value)=>{u.download.call(u,list)}
+				i=(list=document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value)=>{u.insert.call(u,list)};
 				let up=(isimg=0)=>{
 					let uploader=document.createElement("input");
 					uploader.type="file";
 					uploader.name="file";
-					uploader.onchange=(isimg=="img")?(()=>{EarthEngines.imgupload(uploader);}):(()=>{EarthEngines.upload(uploader);});
+					uploader.onchange=(isimg=="img")?(()=>{EarthEngines.imgupload(uploader)}):(()=>{EarthEngines.upload(uploader)});
 					uploader.click();
 				}
 				eval(document.getElementById('EarthEnginesEval').value);
 			}
 		</script>
-		<textarea id="EarthEnginesContent" cols="40%" rows="20"></textarea><br />
-		<textarea id="EarthEnginesEval" cols="40%" rows="4"></textarea><br />
+		<textarea id="EarthEnginesEval" cols="40%" rows="24"></textarea><br />
 		<button type="button" onclick="EarthEngines_enjoy()">enjoy!</button>
 	</li>
 	<li>
@@ -8924,11 +8930,16 @@ setEscape("language-html",document.getElementById("docsify"),document.getElement
 </li>
 <li>
 	<details id="document">
-		<summary>document browse<button onclick='this.setAttribute("i", (Number(this.getAttribute("i"))+1).toString());document.getElementById("document").innerHTML+=`<details><summary>document history ${this.getAttribute("i")} commit</summary><pre><code id="Document${this.getAttribute("i")}" class="language-html" style="font-family:Fira">${HtmlUtil.html2Escape(document.documentElement.outerHTML)}</code></pre></details>`;hljs.highlightElement(document.getElementById(`document${this.getAttribute("i")}`));' i = "0">refresh!</button></summary>
+		<summary>document browse<button onclick='(function () {let getdocument_button = document.getElementById("document").querySelector("button");getdocument_button.setAttribute("i", (Number(getdocument_button.getAttribute("i")) + 1).toString());let document_history = document.importNode(document.getElementById("code_template").content.querySelector("details"), true);document_history.querySelector("summary").innerHTML = `document history ${getdocument_button.getAttribute("i")} commit`;document_history.querySelector("code").innerHTML = HtmlUtil.html2Escape(document.documentElement.outerHTML);NodeMove(document_history, document.getElementById("document"), "inner");hljs.highlightElement(document_history.querySelector("code"));fontswitch(2, document_history.querySelector("code"));})();' i = "0">refresh!</button></summary>
 	</details>
 </li>
 <li id="2024_templater">2024 templater
-	<template id="code_template"><pre><code language="html" class="language-html"></code></pre></template>
+	<template id="code_template">
+		<details>
+			<summary></summary>
+			<pre><code></code></pre>
+		</details>
+	</template>
 	<template id="pbrowser_template"><a href="#未完成/研究/persistent" id="pbrowser/{{i}}" target="_self">persistent(浏览器)</a><li><a href="#pbrowser/{{i}}" target="_self">#pbrowser{{i}}</a></li></template>
 	<template id="inboxed">
 - 第二期报纸问题梳理
