@@ -1,14 +1,15 @@
 let Engines={
 	base:document.getElementById('Engines'),
 	visibler:0,
+	newarea:function(value){
+		EnginesContent=document.createElement("textarea");
+		EnginesContent.className="0";
+		EnginesContent.value=value;
+		return EnginesContent;
+	},
 	upload:function (origin,target=this.base){
 		let EnginesReader = new FileReader();
-		EnginesReader.onload = function(){
-			EnginesContent=document.createElement("textarea");
-			EnginesContent.className="0";
-			EnginesContent.value=this.result;
-			target.appendChild(EnginesContent);
-		}
+		EnginesReader.onload = function(){target.appendChild(newarea(this.result))}
 		EnginesReader.readAsText(origin.files[0]);
 	},
 	imgupload:function (origin,target=this.base){
@@ -21,7 +22,7 @@ let Engines={
 		target.appendChild(preview);
 	},
 	download:(name,obj)=>{
-		let EnginesAnchor = document.createElement("a"); 
+		let EnginesAnchor = document.createElement("a");
 		EnginesAnchor.href = window.URL.createObjectURL(new Blob([obj]));
 		EnginesAnchor.download = name;
 		EnginesAnchor.target ="_blank";
@@ -66,8 +67,8 @@ let Engines={
 	}
 };
 function EnginesEnjoy(){
-	let val = () => document.getElementsByClassName("0")[document.getElementsByClassName("0").length - 1].value;
-	u = Engines, n = (value) => { Engines.newopen(value) }, d = u.delete.bind(u), s = (name, obj = val()) => { u.download.call(u, name, obj) }, i = (obj = val()) => { u.insert.call(u, obj) };
+	let val=()=>document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value;
+	u = Engines,n=(value)=>{Engines.newopen(value)},d=u.delete.bind(u),s=(name,obj=val())=>{u.download.call(u,name,obj)},i=(obj=val())=>{u.insert.call(u,obj)};
 	let up=(isimg=0)=>{
 		let uploader=document.createElement("input");
 		uploader.type="file";
@@ -75,14 +76,14 @@ function EnginesEnjoy(){
 		uploader.onchange=(isimg=="img")?(()=>{Engines.imgupload.call(u,uploader)}):(()=>{Engines.upload(uploader)});
 		uploader.click();
 	}
-	eval(document.getElementById('EnginesEval').value);
+	eval(document.getElementById('EnginesEnjoy').value);
 }
 function change(obj) {
 	Engines.delete();
 	Engines.insert(obj);
 }
 let initdoc = `
-<textarea id="EnginesEval" cols="40%" rows="4"></textarea><br /><button type="button" onclick="EnginesEnjoy()">enjoy!</button>
+<textarea id="EnginesEnjoy" cols="40%" rows="4"></textarea><br /><button type="button" onclick="EnginesEnjoy()">enjoy!</button>
 <ul>
 <li><a href="./index.html#read%20board">read board</a></li>
 <li><a href="./index.html">index.html</a></li>

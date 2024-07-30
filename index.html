@@ -779,14 +779,15 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			let EarthEngines={
 				base:document.getElementById('EarthEngines'),
 				visibler:0,
+				newarea:function(value){
+					EarthEnginesContent=document.createElement("textarea");
+					EarthEnginesContent.className="0";
+					EarthEnginesContent.value=value;
+					return EarthEnginesContent;
+				},
 				upload:function (origin,target=this.base){
 					let EarthEnginesReader = new FileReader();
-					EarthEnginesReader.onload = function(){
-						EarthEnginesContent=document.createElement("textarea");
-						EarthEnginesContent.className="0";
-						EarthEnginesContent.value=this.result;
-						target.appendChild(EarthEnginesContent);
-					}
+					EarthEnginesReader.onload = function(){target.appendChild(newarea(this.result))}
 					EarthEnginesReader.readAsText(origin.files[0]);
 				},
 				imgupload:function (origin,target=this.base){
@@ -799,7 +800,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					target.appendChild(preview);
 				},
 				download:(name,obj)=>{
-					let EarthEnginesAnchor = document.createElement("a"); 
+					let EarthEnginesAnchor = document.createElement("a");
 					EarthEnginesAnchor.href = window.URL.createObjectURL(new Blob([obj]));
 					EarthEnginesAnchor.download = name;
 					EarthEnginesAnchor.target ="_blank";
