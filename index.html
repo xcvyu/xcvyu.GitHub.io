@@ -778,7 +778,6 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 		<script>
 			let EarthEngines={
 				base:document.getElementById('EarthEngines'),
-				Deleter:0,
 				visibler:0,
 				upload:function (origin,target=this.base){
 					let EarthEnginesReader = new FileReader();
@@ -817,7 +816,6 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					EarthEnginesInserter.innerHTML = elements;
 					target.appendChild(EarthEnginesInserter);
 					this.scriptfinder(EarthEnginesInserter);
-					this.Deleter+=1;
 				},
 				scriptfinder:function (obj){
 					for(let i of obj.children){
@@ -836,34 +834,30 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 						this.scriptfinder(i);
 					}
 				},
-				visible:()=>{
-					if(this.visibler)document.querySelector('#EarthEngines').style.display = 'block';
-					if(!this.visibler)document.querySelector('#EarthEngines').style.display = 'none';
+				visible:function (){
+					this.base.style.display = this.visibler?'block':'none';
 					this.visibler=!this.visibler;
 				},
 				delete:function (){
 					// document.querySelector('#EarthEngines :last-child').remove();
 					this.base.lastChild.remove();
-					this.Deleter-=1;
-				},
-				isdel:()=>{alert("delete:"+this.Deleter)}
+				}
 			};
-			function EarthEngines_enjoy(){
-				u = EarthEngines,n=(value)=>{EarthEngines.newopen(value)},d=u.delete.bind(u),
-				s=(list=document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value)=>{u.download.call(u,list)}
-				i=(list=document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value)=>{u.insert.call(u,list)};
+			function EarthEnginesEnjoy(){
+				let val=()=>document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value;
+				u = EarthEngines,n=(value)=>{EarthEngines.newopen(value)},d=u.delete.bind(u),s=(name,list=val())=>{u.download.call(u,list,name)},i=(list=val())=>{u.insert.call(u,list)};
 				let up=(isimg=0)=>{
 					let uploader=document.createElement("input");
 					uploader.type="file";
 					uploader.name="file";
-					uploader.onchange=(isimg=="img")?(()=>{EarthEngines.imgupload(uploader)}):(()=>{EarthEngines.upload(uploader)});
+					uploader.onchange=(isimg=="img")?(()=>{EarthEngines.imgupload.call(u,uploader)}):(()=>{EarthEngines.upload(uploader)});
 					uploader.click();
 				}
-				eval(document.getElementById('EarthEnginesEval').value);
+				eval(document.getElementById('EarthEnginesEnjoy').value);
 			}
 		</script>
-		<textarea id="EarthEnginesEval" cols="40%" rows="24"></textarea><br />
-		<button type="button" onclick="EarthEngines_enjoy()">enjoy!</button>
+		<textarea id="EarthEnginesEnjoy" cols="40%" rows="24"></textarea><br />
+		<button type="button" onclick="EarthEnginesEnjoy()">enjoy!</button>
 	</li>
 	<li>
 		<script>
@@ -10177,6 +10171,7 @@ console.log(twoArgs.length); // 2</code></pre>
 	<ul>
 	<li>不要将人生意义的解释权外包给痛苦——认为自己具有他人不能理解的痛苦，是独一无二的，也应当被独一无二的看待。就这样，我仰赖着所谓“受害者心态”生活，作为动力，但也很容易在遇到不公时加重这种心态，并在最终作为消极逃避的借口。换个角度想，其实自己的人生是幸福的，因而我也当积极面对生活，遇到挫折时，也要懂得生活总体上没有亏待我，我足够幸福。<a href="https://sspai.com/post/86911">年度征文 | 从戒除安眠药开始，我选择不再将自己外包——少数派</a></li>
 	<li>一直以来抗拒定规则，其实是在逃避未知，可是未知正是人生的乐趣所在——</li>
+	<li>noip Password：<code>01ThePhysics</code></li>
 	</ul>
 </li>
 </ul>
