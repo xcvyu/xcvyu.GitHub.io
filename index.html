@@ -747,7 +747,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			()=>{NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before")},
 			pbrowser,highlightjser,vuemarkdown,flomoer,baser,imgonerror,print_PerformanceEntries
 		];
-		const annotatedTasks=[vditorinit,vconsoler,erudaer,MathJax.typeset,inboxerhelp];
+		const annotatedTasks=[vditorinit,erudaer,vconsoler,MathJax.typeset,inboxerhelp];
 		while (tasks.length > 0) {
 			if (navigator.scheduling.isInputPending()) {
 				await new Promise(resolve => {setTimeout(resolve, 0)});
@@ -779,15 +779,17 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			let EarthEngines={
 				base:document.getElementById('EarthEngines'),
 				visibler:0,
+				val:()=>document.getElementsByClassName("EarthEnginesContent")[document.getElementsByClassName("EarthEnginesContent").length-1].value,
 				newarea:function(value){
-					EarthEnginesContent=document.createElement("textarea");
-					EarthEnginesContent.className="0";
+					let EarthEnginesContent=document.createElement("textarea");
+					EarthEnginesContent.className="EarthEnginesContent";
 					EarthEnginesContent.value=value;
 					return EarthEnginesContent;
 				},
 				upload:function (origin,target=this.base){
+				const newareas=this.newarea;
 					let EarthEnginesReader = new FileReader();
-					EarthEnginesReader.onload = function(){target.appendChild(newarea(this.result))}
+					EarthEnginesReader.onload = function(){target.appendChild(newareas(this.result))}
 					EarthEnginesReader.readAsText(origin.files[0]);
 				},
 				imgupload:function (origin,target=this.base){
@@ -799,7 +801,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					}
 					target.appendChild(preview);
 				},
-				download:(name,obj)=>{
+				download:(name,obj=this.val())=>{
 					let EarthEnginesAnchor = document.createElement("a");
 					EarthEnginesAnchor.href = window.URL.createObjectURL(new Blob([obj]));
 					EarthEnginesAnchor.download = name;
@@ -812,7 +814,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					EarthEnginesWindow.document.write(obj);
 					EarthEnginesWindow.document.close();
 				},
-				insert:function (elements,target=this.base){
+				insert:function (elements=this.val(),target=this.base){
 					let EarthEnginesInserter=document.createElement("div");
 					EarthEnginesInserter.innerHTML = elements;
 					target.appendChild(EarthEnginesInserter);
@@ -845,13 +847,12 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 				}
 			};
 			function EarthEnginesEnjoy(){
-				let val=()=>document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value;
-				u = EarthEngines,n=(value)=>{EarthEngines.newopen(value)},d=u.delete.bind(u),s=(name,obj=val())=>{u.download.call(u,name,obj)},i=(obj=val())=>{u.insert.call(u,obj)};
+				u = EarthEngines,val=u.val,n=u.newopen.bind(u),d=u.delete.bind(u),s=u.download.bind(u),i=u.insert.bind(u);
 				let up=(isimg=0)=>{
 					let uploader=document.createElement("input");
 					uploader.type="file";
 					uploader.name="file";
-					uploader.onchange=(isimg=="img")?(()=>{EarthEngines.imgupload.call(u,uploader)}):(()=>{EarthEngines.upload(uploader)});
+					uploader.onchange=()=>((isimg=="img")?EarthEngines.imgupload:EarthEngines.upload).bind(u)(uploader);
 					uploader.click();
 				}
 				eval(document.getElementById('EarthEnginesEnjoy').value);

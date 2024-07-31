@@ -1,15 +1,17 @@
 let Engines={
-	base:document.getElementById('Engines'),
+	base:document.body,
 	visibler:0,
+	val:()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1].value,
 	newarea:function(value){
-		EnginesContent=document.createElement("textarea");
-		EnginesContent.className="0";
+		let EnginesContent=document.createElement("textarea");
+		EnginesContent.className="EnginesContent";
 		EnginesContent.value=value;
 		return EnginesContent;
 	},
 	upload:function (origin,target=this.base){
+	const newareas=this.newarea;
 		let EnginesReader = new FileReader();
-		EnginesReader.onload = function(){target.appendChild(newarea(this.result))}
+		EnginesReader.onload = function(){target.appendChild(newareas(this.result))}
 		EnginesReader.readAsText(origin.files[0]);
 	},
 	imgupload:function (origin,target=this.base){
@@ -21,7 +23,7 @@ let Engines={
 		}
 		target.appendChild(preview);
 	},
-	download:(name,obj)=>{
+	download:(name,obj=this.val())=>{
 		let EnginesAnchor = document.createElement("a");
 		EnginesAnchor.href = window.URL.createObjectURL(new Blob([obj]));
 		EnginesAnchor.download = name;
@@ -34,7 +36,7 @@ let Engines={
 		EnginesWindow.document.write(obj);
 		EnginesWindow.document.close();
 	},
-	insert:function (elements,target=this.base){
+	insert:function (elements=this.val(),target=this.base){
 		let EnginesInserter=document.createElement("div");
 		EnginesInserter.innerHTML = elements;
 		target.appendChild(EnginesInserter);
@@ -67,19 +69,18 @@ let Engines={
 	}
 };
 function EnginesEnjoy(){
-	let val=()=>document.getElementsByClassName("0")[document.getElementsByClassName("0").length-1].value;
-	u = Engines,n=(value)=>{Engines.newopen(value)},d=u.delete.bind(u),s=(name,obj=val())=>{u.download.call(u,name,obj)},i=(obj=val())=>{u.insert.call(u,obj)};
+	u = Engines,val=u.val,n=u.newopen.bind(u),d=u.delete.bind(u),s=u.download.bind(u),i=u.insert.bind(u);
 	let up=(isimg=0)=>{
 		let uploader=document.createElement("input");
 		uploader.type="file";
 		uploader.name="file";
-		uploader.onchange=(isimg=="img")?(()=>{Engines.imgupload.call(u,uploader)}):(()=>{Engines.upload(uploader)});
+		uploader.onchange=()=>((isimg=="img")?Engines.imgupload:Engines.upload).bind(u)(uploader);
 		uploader.click();
 	}
 	eval(document.getElementById('EnginesEnjoy').value);
 }
 function change(obj) {
-	Engines.delete();
+	document.body.innerHTML = "";
 	Engines.insert(obj);
 }
 let initdoc = `
