@@ -784,12 +784,13 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					let EarthEnginesContent=document.createElement("textarea");
 					EarthEnginesContent.className="EarthEnginesContent";
 					EarthEnginesContent.value=value;
+					target.appendChild(EarthEnginesContent);
 					return EarthEnginesContent;
 				},
 				upload:function (origin,target=this.base){
 				const newareas=this.newarea;
 					let EarthEnginesReader = new FileReader();
-					EarthEnginesReader.onload = function(){target.appendChild(newareas(this.result))}
+					EarthEnginesReader.onload = function(){newareas(this.result)}
 					EarthEnginesReader.readAsText(origin.files[0]);
 				},
 				imgupload:function (origin,target=this.base){
@@ -807,6 +808,13 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					EarthEnginesAnchor.download = name;
 					EarthEnginesAnchor.target ="_blank";
 					EarthEnginesAnchor.click();
+				},
+				give: function(obj=this.val()){
+					let formData = new FormData();
+					formData.append("file", new File([obj], "foo.txt", {type: "text/plain",}));
+					let request = new XMLHttpRequest();
+					request.open("POST", "http://127.0.0.1:3000/upload");
+					request.send(formData);
 				},
 				newopen:(obj)=>{
 					let EarthEnginesWindow=window.open();

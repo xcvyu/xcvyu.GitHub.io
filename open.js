@@ -2,16 +2,17 @@ let Engines={
 	base:document.body,
 	visibler:0,
 	val:()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1].value,
-	newarea:function(value){
+	newarea:function(value,target=this.base){
 		let EnginesContent=document.createElement("textarea");
 		EnginesContent.className="EnginesContent";
-		EnginesContent.value=value;
+		EnginesContent.value = value;
+		target.appendChild(EnginesContent);
 		return EnginesContent;
 	},
 	upload:function (origin,target=this.base){
-	const newareas=this.newarea;
+		const newareas=this.newarea;
 		let EnginesReader = new FileReader();
-		EnginesReader.onload = function(){target.appendChild(newareas(this.result))}
+		EnginesReader.onload = function(){newareas(this.result,target)}
 		EnginesReader.readAsText(origin.files[0]);
 	},
 	imgupload:function (origin,target=this.base){
@@ -29,6 +30,13 @@ let Engines={
 		EnginesAnchor.download = name;
 		EnginesAnchor.target ="_blank";
 		EnginesAnchor.click();
+	},
+	give: function(obj=this.val()){
+		let formData = new FormData();
+		formData.append("file", new File([obj], "foo.txt", {type: "text/plain",}));
+		let request = new XMLHttpRequest();
+		request.open("POST", "http://127.0.0.1:3000/upload");
+		request.send(formData);
 	},
 	newopen:(obj)=>{
 		let EnginesWindow=window.open();
