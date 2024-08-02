@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 <meta name="color-scheme" content="light dark">
@@ -41,5 +42,109 @@
 		box-shadow: 1px 1px 1px #999;
 	}
 </style>
+<script type="module">
+let Engines={
+	base:document.body,
+	visibler:0,
+	val:()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1].value,
+	newarea:function(value,target=this.base){
+		let Content=document.createElement("textarea");
+		Content.className="EnginesContent";
+		Content.value = value;
+		target.appendChild(Content);
+		return Content;
+	},
+	upload:function (target=this.base){
+		let uploader=document.createElement("input");
+		uploader.type="file";
+		uploader.name="file";
+		uploader.onchange=()=>{
+			const isimage=/image/i.test(uploader.files[0].type);
+			let Reader = new FileReader();
+			Reader.onload = (isimage)?
+				() => {
+					let preview = document.createElement("img");
+					preview.src = Reader.result;
+					target.appendChild(preview);
+				}:
+				() => {this.newarea(Reader.result,target)};
+			if(isimage){
+				Reader.readAsDataURL(uploader.files[0]);
+			} else {
+				Reader.readAsText(uploader.files[0]);
+			}
+		}
+		uploader.click();
+	},
+	download:(name,obj=this.val())=>{
+		let Anchor = document.createElement("a");
+		Anchor.href = window.URL.createObjectURL(new Blob([obj]));
+		Anchor.download = name;
+		Anchor.target ="_blank";
+		Anchor.click();
+	},
+	give: function(obj=this.val(),port=3000){
+		let giver = new FormData();
+		giver.append("file", new File([obj], "foo.txt", {type: "text/plain",}));
+		let request = new XMLHttpRequest();
+		request.open("POST", `http://0.0.0.0:${port}/upload`);
+		request.send(giver);
+		return request;
+	},
+	newopen:(obj)=>{
+		let neWindow=window.open();
+		neWindow.opener = null;
+		neWindow.document.write(obj);
+		neWindow.document.close();
+	},
+	insert:function (elements=this.val(),target=this.base){
+		let Inserter=document.createElement("div");
+		Inserter.innerHTML = elements;
+		target.appendChild(Inserter);
+		this.scriptfinder(Inserter);
+	},
+	scriptfinder:function (obj){
+		for(let i of obj.children){
+			if(i.tagName=='SCRIPT'){
+				let g = document.createElement("script");
+				g.text = i.innerHTML;
+				if(i.src!=''){
+					g.src=i.src;
+					g.charset = i.charset;
+					g.async=i.async;
+					g.defer=i.defer;
+				}
+				i.before(g);
+				g.remove();
+			}
+			this.scriptfinder(i);
+		}
+	},
+	visible:function (){
+		this.base.style.display = this.visibler?'block':'none';
+		this.visibler=!this.visibler;
+	},
+	delete:function (){
+		// document.querySelector('#Engines :last-child').remove();
+		this.base.lastChild.remove();
+	}
+};
+function change(obj) {
+	document.body.innerHTML = "";
+	Engines.insert(obj);
+}
+let initdoc = `
+<textarea id="Enjoy" cols="40%" rows="24"></textarea><br />
+<button type="button" onclick="let u = Engines,val=u.val.bind(u),n=u.newopen.bind(u),d=u.delete.bind(u),s=u.download.bind(u),i=u.insert.bind(u),up=u.upload.bind(u);eval(document.getElementById('Enjoy').value);">enjoy!</button>
+<ul>
+<li><a href="./index.html#read%20board">read board</a></li>
+<li><a href="./index.html">index.html</a></li>
+<li><a href="javascript:change(musicdoc)">xcvyu-music</a></li>
+<li><a href="javascript:change(feeddoc)">xcvyu-feed</a></li>
+<li><a href="https://pwa.sspai.com/">sspai</a></li>
+</ul>`;
+change(initdoc);
+import { musicdoc , feeddoc } from "./template.js";
+</script>
+</head>
 <body></body>
-<script src="./open.js"></script>
