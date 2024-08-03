@@ -739,12 +739,13 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 		if(inited)return;
 		const tasks = [
 			// 要运行的函数数组
-			()=>{for(let i of document.getElementById("rooter").children)i.setAttribute("class","card")},
-			()=>{fontswitch(0, document.body)},
-			()=>{fontswitch(2, document.getElementsByTagName("code"))},
-			()=>{backgrounder(window.starail, "left")},
-			()=>{NodeMove(document.adoptNode(document.getElementById("sourcebrowsefir")),document.getElementById("rooter"),"inner")},
-			()=>{NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before")},
+			()=>Engines("change")(initdoc),
+			()=>{for(let i of document.getElementById("rooter").children){i.setAttribute("class","card")}},
+			()=>fontswitch(0, document.body),
+			()=>fontswitch(2, document.getElementsByTagName("code")),
+			()=>backgrounder(window.starail, "left"),
+			()=>NodeMove(document.adoptNode(document.getElementById("sourcebrowsefir")),document.getElementById("rooter"),"inner"),
+			()=>NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before"),
 			pbrowser,highlightjser,vuemarkdown,flomoer,baser,imgonerror,print_PerformanceEntries
 		];
 		const annotatedTasks=[vditorinit,erudaer,vconsoler,MathJax.typeset,inboxerhelp];
@@ -774,20 +775,18 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 </script>
 
 <ul id="rooter">
-	<li id="EarthEngines">
+	<li id="Engines">
 		<script>
-			let EarthEngines={
-				base:document.getElementById("EarthEngines"),
-				visibler:0,
-				val:()=>document.getElementsByClassName("EarthEnginesContent")[document.getElementsByClassName("EarthEnginesContent").length-1].value,
-				newarea:function(value,target=this.base){
+			function Engines(Enjoy){
+				const base=document.getElementById("Engines"),val=()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1].value;
+				function newarea(value,target=Engines("base")){
 					let Content=document.createElement("textarea");
-					Content.className="EarthEnginesContent";
+					Content.className="EnginesContent";
 					Content.value = value;
 					target.appendChild(Content);
 					return Content;
-				},
-				upload:function (target=this.base){
+				}
+				function upload(target=Engines("base")){
 					let uploader=document.createElement("input");
 					uploader.type="file";
 					uploader.name="file";
@@ -800,7 +799,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 								preview.src = Reader.result;
 								target.appendChild(preview);
 							}:
-							() => {this.newarea(Reader.result,target)};
+							() => {Engines("newarea")(Reader.result,target)};
 						if(isimage){
 							Reader.readAsDataURL(uploader.files[0]);
 						} else {
@@ -808,35 +807,35 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 						}
 					}
 					uploader.click();
-				},
-				download:(name,obj=this.val())=>{
+				}
+				function download(name,obj=Engines("val")()){
 					let Anchor = document.createElement("a");
 					Anchor.href = window.URL.createObjectURL(new Blob([obj]));
 					Anchor.download = name;
 					Anchor.target ="_blank";
 					Anchor.click();
-				},
-				give: function(obj=this.val(),port=3000){
+				}
+				function give(obj=Engines("val")(),port=3000){
 					let giver = new FormData();
 					giver.append("file", new File([obj], "foo.txt", {type: "text/plain",}));
 					let request = new XMLHttpRequest();
 					request.open("POST", `http://0.0.0.0:${port}/upload`);
 					request.send(giver);
 					return request;
-				},
-				newopen:(obj)=>{
+				}
+				function newopen(obj){
 					let neWindow=window.open();
 					neWindow.opener = null;
 					neWindow.document.write(obj);
 					neWindow.document.close();
-				},
-				insert:function (elements=this.val(),target=this.base){
+				}
+				function insert(elements=Engines("val")(),target=Engines("base")){
 					let Inserter=document.createElement("div");
 					Inserter.innerHTML = elements;
 					target.appendChild(Inserter);
-					this.scriptfinder(Inserter);
-				},
-				scriptfinder:function (obj){
+					Engines("scriptfinder")(Inserter);
+				}
+				function scriptfinder(obj){
 					for(let i of obj.children){
 						if(i.tagName=='SCRIPT'){
 							let g = document.createElement("script");
@@ -850,21 +849,22 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 							i.before(g);
 							g.remove();
 						}
-						this.scriptfinder(i);
+						scriptfinder(i);
 					}
-				},
-				visible:function (){
-					this.base.style.display = this.visibler?'block':'none';
-					this.visibler=!this.visibler;
-				},
-				delete:function (){
-					// document.querySelector('#EarthEngines :last-child').remove();
-					this.base.lastChild.remove();
 				}
-			};
+				function deleted(){
+					// document.querySelector('#Engines :last-child').remove();
+					Engines("base").lastChild.remove();
+				}
+				function change(obj,target=Engines("base")) {
+					target.innerHTML = "";
+					Engines("insert")(obj,target);
+				}
+				let n=newopen,d=deleted,s=download,i=insert,up=upload;
+				return eval(Enjoy);
+			}
+			let initdoc='<textarea id="Enjoy" cols="40%" rows="24"></textarea><br /><button onclick="Engines(document.getElementById(\'Enjoy\').value)">enjoy!</button>';
 		</script>
-		<textarea id="Enjoy" cols="40%" rows="24"></textarea><br />
-		<button type="button" onclick="let u = EarthEngines,val=u.val.bind(u),n=u.newopen.bind(u),d=u.delete.bind(u),s=u.download.bind(u),i=u.insert.bind(u),up=u.upload.bind(u);eval(document.getElementById('Enjoy').value);">enjoy!</button>
 	</li>
 	<li>
 		<script>
@@ -902,9 +902,8 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			all_visibler=!all_visibler;
 		}
 		</script>
-		<button type="button" onclick="fufu.iterator(this.offsetParent);">fufu!</button>
-		<button onclick="all_visible()">hide all!</button>
-		<button onclick="EarthEngines.visible()">visible!</button><br /><br id="timeused"/>
+		<button onclick="fufu.iterator(this.offsetParent);">fufu!</button>
+		<button onclick="all_visible()">hide all!</button><br /><br id="timeused"/>
 		<button onclick="document.getElementById('flashcard_flow').innerHTML = document.getElementsByClassName('flashcard')[Number(this.getAttribute('i'))].outerHTML;this.setAttribute('i',(Number(this.getAttribute('i'))+1).toString());" id="flashcard_button" i="0">flow</button>
 		<div id="flashcard_flow"></div>
 	</li>
@@ -7160,7 +7159,7 @@ function edit () {
 				<li>&amp;gt; - &gt;</li>
 				<li>&amp;amp;lt; - &amp;lt;</li>
 				<li>&amp;amp;gt; - &amp;gt;</li>
-				<li><button onclick='let HtmlUtil_shower=document.importNode(document.getElementById("code_template").content.querySelector("pre"), true);HtmlUtil_shower.children[0].innerHTML=HtmlUtil.htmlEncode(document.getElementById("htmlEscape").innerHTML);HtmlUtil_shower.children[0].removeAttribute("class");HtmlUtil_shower.children[0].setAttribute("language","javascript");HtmlUtil_shower.children[0].id="HtmlUtil_shower";this.parentNode.appendChild(HtmlUtil_shower);hljs.highlightElement(document.getElementById("HtmlUtil_shower"));this.remove();'>P.S.2024.06.09 获取更加准确的转义信息</button></li>
+				<li><button onclick='let HtmlUtil_shower=document.importNode(document.getElementById("code_template").content.querySelector("pre"), true);HtmlUtil_shower.children[0].innerHTML=HtmlUtil.htmlEncode(document.getElementById("htmlEscape").innerHTML);HtmlUtil_shower.children[0].setAttribute("class","language-javascript");HtmlUtil_shower.children[0].id="HtmlUtil_shower";this.parentNode.appendChild(HtmlUtil_shower);hljs.highlightElement(document.getElementById("HtmlUtil_shower"));this.remove();'>P.S.2024.06.09 获取更加准确的转义信息</button></li>
 			</ul>
 			<script id="htmlEscape">
 				HtmlUtil = {
@@ -9618,7 +9617,7 @@ Q：在学习的道路上是什么一直支撑你坚持走下去(既有学文科
 	];
 	playMusic(musicList.reverse(),"musicplay");
 	</textarea><br />
-	<button type="button" onclick="begin_music()">enjoy!</button>
+	<button onclick="begin_music()">enjoy!</button>
 	<a href="javascript:israndom=!israndom" class="musicontorl">random!</a>
 	<br />
 	</div>--></pre></details>
@@ -9725,7 +9724,7 @@ Q：在学习的道路上是什么一直支撑你坚持走下去(既有学文科
 		"name":"musicplay"
 	}
 	</textarea><br />
-	<button type="button" onclick="playMusic(JSON.parse(document.getElementById('song_sheet').value));">enjoy!</button>
+	<button onclick="playMusic(JSON.parse(document.getElementById('song_sheet').value));">enjoy!</button>
 	</div>--></pre></details>
 		</li>
 		<li id="musicplayer">P.S.2024.7.1 舍弃了复杂的 id 操作，以后不用给每个播放器一个独立 id 了！<a href="##musicplayer">标签面板</a>
@@ -9945,7 +9944,7 @@ Q：在学习的道路上是什么一直支撑你坚持走下去(既有学文科
 					"/music/青春跃起来 (Live) .mp3"
 				]
 			</textarea><br />
-			<button type="button" onclick="document.getElementById('musicplayer').appendChild(new playMusic(JSON.parse(document.getElementById('song_sheet').value)))">enjoy!</button>
+			<button onclick="document.getElementById('musicplayer').appendChild(new playMusic(JSON.parse(document.getElementById('song_sheet').value)))">enjoy!</button>
 		</li>
 		</ul>
 	</template>
@@ -10483,6 +10482,116 @@ console.log(twoArgs.length); // 2</code></pre>
 	<li>一直以来抗拒定规则，其实是在逃避未知，可是未知正是人生的乐趣所在——</li>
 	<li>noip Password：<code>01ThePhysics</code></li>
 	<li>大家好：欢迎参观乌兰夫纪念馆。乌兰夫纪念馆于1992年12月23日落成开馆。馆区占地面积约3万平方米，整体建筑由主馆、纪念广场、塑像平台、升旗台、碑亭、牌楼6个部分组成。我们现在所在的位置是纪念广场，位于纪念广场中央是乌兰夫同志的铜像。铜像高4.4米，重4吨，主题为“重返故里”。乌老身着呢子大衣，带宽边眼镜，手持拐杖，深沉宁重，他深情的凝望着远方，仿佛在关注着这片他曾为之奋斗了半个多世纪的土地，关注着他深深热爱和眷恋的故乡。乌兰夫纪念馆开馆至今已经获得了诸多荣誉，先后被命名为“全国爱国主义教育示范基地”、“国家4A级旅游景区”、“全国红色旅游经典景区”、“全国民族团结进步教育基地”、“国家国防教育基地”、“全国廉政教育基地”、“全国社会科学普及基地”、“中国华侨国际文化交流基地”等。前方是纪念馆的主馆，主馆上方是由时任国家主席杨尚昆为纪念馆题写的馆名。主馆建筑面积2100平方米，展览面积1500平方米，整个展览生动详实的展现了乌兰夫同志等老一辈无产阶级革命家，为争取民族解放、祖国统一，为中国革命和建设建立的不朽功勋。下面请大家进入展厅参观。</li>
+	</ul>
+</li>
+<li>2024.08.03
+	<ul>
+	<li>正在思考讲解员的枯燥乏味，碰上了学习先进经验的新讲解员和老讲解员的讨论，发现讲解员的工作也有很多学问。事实上，完整的一次讲解至少需要一小时 50 分钟！</li>
+	<li>
+		<script id="EarthEngines">
+			const EarthEngines={
+				base:document.getElementById("EarthEngines"),
+				visibler:0,
+				val:()=>document.getElementsByClassName("EarthEnginesContent")[document.getElementsByClassName("EarthEnginesContent").length-1].value,
+				newarea:function(value,target=this.base){
+					let Content=document.createElement("textarea");
+					Content.className="EarthEnginesContent";
+					Content.value = value;
+					target.appendChild(Content);
+					return Content;
+				},
+				upload:function (target=this.base){
+					let uploader=document.createElement("input");
+					uploader.type="file";
+					uploader.name="file";
+					uploader.onchange=()=>{
+						const isimage=/image/i.test(uploader.files[0].type);
+						let Reader = new FileReader();
+						Reader.onload = (isimage)?
+							() => {
+								let preview = document.createElement("img");
+								preview.src = Reader.result;
+								target.appendChild(preview);
+							}:
+							() => {this.newarea(Reader.result,target)};
+						if(isimage){
+							Reader.readAsDataURL(uploader.files[0]);
+						} else {
+							Reader.readAsText(uploader.files[0]);
+						}
+					}
+					uploader.click();
+				},
+				download:(name,obj=this.val())=>{
+					let Anchor = document.createElement("a");
+					Anchor.href = window.URL.createObjectURL(new Blob([obj]));
+					Anchor.download = name;
+					Anchor.target ="_blank";
+					Anchor.click();
+				},
+				give:function(obj=this.val(),port=3000){
+					let giver = new FormData();
+					giver.append("file", new File([obj], "foo.txt", {type: "text/plain",}));
+					let request = new XMLHttpRequest();
+					request.open("POST", `http://0.0.0.0:${port}/upload`);
+					request.send(giver);
+					return request;
+				},
+				newopen:(obj)=>{
+					let neWindow=window.open();
+					neWindow.opener = null;
+					neWindow.document.write(obj);
+					neWindow.document.close();
+				},
+				insert:function (elements=this.val(),target=this.base){
+					let Inserter=document.createElement("div");
+					Inserter.innerHTML = elements;
+					target.appendChild(Inserter);
+					this.scriptfinder(Inserter);
+				},
+				scriptfinder:function (obj){
+					for(let i of obj.children){
+						if(i.tagName=='SCRIPT'){
+							let g = document.createElement("script");
+							g.text = i.innerHTML;
+							if(i.src!=''){
+								g.src=i.src;
+								g.charset = i.charset;
+								g.async=i.async;
+								g.defer=i.defer;
+							}
+							i.before(g);
+							g.remove();
+						}
+						this.scriptfinder(i);
+					}
+				},
+				visible:function (){
+					this.base.style.display = this.visibler?'block':'none';
+					this.visibler=!this.visibler;
+				},
+				delete:function (){
+					// document.querySelector('#EarthEngines :last-child').remove();
+					this.base.lastChild.remove();
+				},
+				newenvironment:function(target=this.base){
+					let Enjoy = document.createElement("textarea");
+					Enjoy.id = "Enjoy";
+					Enjoy.cols = "40%";
+					Enjoy.rows = "24";
+					target.appendChild(Enjoy);
+					let Evaler = document.createElement("button");
+					Evaler.onclick = function (){
+						let u = EarthEngines,val=u.val.bind(u),n=u.newopen.bind(u),d=u.delete.bind(u),s=u.download.bind(u),i=u.insert.bind(u),up=u.upload.bind(u);
+						eval(document.getElementById('Enjoy').value);
+					}
+					Evaler.innerText = "enjoy!";
+					target.appendChild(Evaler);
+				}
+			};
+		</script>
+		<button onclick='let EarthEngines_shower=document.importNode(document.getElementById("code_template").content.querySelector("pre"), true);EarthEngines_shower.children[0].innerHTML=HtmlUtil.htmlEncode(document.getElementById("EarthEngines").innerHTML);EarthEngines_shower.children[0].setAttribute("class","language-javascript");this.parentNode.appendChild(EarthEngines_shower);hljs.highlightElement(EarthEngines_shower.children[0]);this.remove();'>P.S.2024.08.03 曾经 EarthEngines 的存档日</button>
+	</li>
 	</ul>
 </li>
 </ul>
