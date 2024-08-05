@@ -9502,13 +9502,13 @@ Q：在学习的道路上是什么一直支撑你坚持走下去(既有学文科
 	</template>
 	<template id="musicplayer_template">
 	<ul>
-		<li><details><summary>P.S.2023.01.19-:新的项目--JS自制音乐播放器（尚未成功）</summary><pre class="flomo"><!--<div id="法1">
+		<li><details><summary>P.S.2023.01.19-:新的项目--JS自制音乐播放器（尚未成功）</summary><pre class="flomo"><!--<div id="1">
 	<script>
 		//document.getElementsByTagName("audio").setAttribute('src,'http://192.168.5.69:8080/music/孤勇者.mp3');
 	</script>
 	<audio controls></audio>
 	</div>
-	<div id="法2">
+	<div id="2">
 		<audio src="" id="work" controls loop></audio>
 		<script>
 			let i=1;
@@ -9533,7 +9533,7 @@ Q：在学习的道路上是什么一直支撑你坚持走下去(既有学文科
 		</script>
 		<button onclick="runCode()">下一曲</button>
 	</div>
-	<div id="法3">
+	<div id="3">
 		<script>let music = "http://127.0.0.1:8080/music/孤勇者.mp3";</script>
 		<audio controls src="JavaScript://music"></audio>
 	</div>--></pre></details></li>
@@ -10591,6 +10591,28 @@ console.log(twoArgs.length); // 2</code></pre>
 			};
 		</script>
 		<button onclick='let EarthEngines_shower=document.importNode(document.getElementById("code_template").content.querySelector("pre"), true);EarthEngines_shower.children[0].innerHTML=HtmlUtil.htmlEncode(document.getElementById("EarthEngines").innerHTML);EarthEngines_shower.children[0].setAttribute("class","language-javascript");this.parentNode.appendChild(EarthEngines_shower);hljs.highlightElement(EarthEngines_shower.children[0]);this.remove();'>P.S.2024.08.03 曾经 EarthEngines 的存档日</button>
+	</li>
+	</ul>
+</li>
+<li>2024.08.04
+	<ul>
+	<li>SIM pin:<code>18548101287</code>-<code>7621</code></li>
+	<li>
+		<p>R5RS 标准并没有提供专门用于查看函数定义的函数。</p>
+		<p>R5RS 的核心目标是定义 Scheme 语言的基本语法和语义，而不是提供对程序内部结构进行深入检查的工具。</p>
+		<p>`procedure-environment` 函数是一个可选的函数，并非所有 R5RS 实现都必须提供。即使提供了该函数，它也不一定能直接显示函数的定义，而是提供了一个环境，其中包含所有函数的绑定。</p>
+		<p>为了查看函数定义，您需要借助一些额外的工具，例如：
+			<ul>
+			<li>调试器: 一些 Scheme 实现提供调试器，可以用来查看函数定义以及其他调试信息。</li>
+			<li>反汇编器: 某些实现可能提供反汇编器，用于将编译后的代码反汇编成人类可读的格式，这可以帮助您了解函数的定义。</li>
+			<li>宏: 您可以使用宏来构建自己的函数查看工具，例如，您可以编写一个宏来打印函数的 lambda 表达式。</li>
+			</ul>
+		</p>
+		总而言之，R5RS 标准本身没有提供专门用于查看函数定义的函数，但您可以通过一些额外的工具或手段来实现这一目标。
+		<ol>
+			<li>https://groups.csail.mit.edu/mac/ftpdir/scheme-reports/r5rs-html/r5rs_8.html</li>
+			<li>https://wiki.call-cc.org/man/4/The%20R5RS%20standard</li>
+		</ol>
 	</li>
 	</ul>
 </li>
