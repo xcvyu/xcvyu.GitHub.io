@@ -50,7 +50,7 @@
 	}
 
 	.card{
-		opacity: 0.8;
+		/*opacity: 0.8;*/
 	}
 
 	/* @font-face {
@@ -79,9 +79,9 @@
 	}
 
 	.card {
-		/*border: 1px solid skyblue;*/
+		border: 1px solid /*skyblue*/#2376b7;
 		margin: 20px 0;
-		background: var(--back);
+		/*background: var(--back);*/
 		padding: 20px;
 		border-radius: 6px;
 	}
@@ -477,7 +477,7 @@
 		}
 	}
 	function backgrounder(src , position="center" , elements=document.body) {
-		elements.style.background = `url("${src}") no-repeat ${position}/cover fixed`;
+		elements.style.background = `url(${src}) no-repeat ${position}/cover fixed`;
 	}
 	// MathJax (LaTeX)
 	function MathSaverOld(){
@@ -778,11 +778,13 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 	<li id="Engines">
 		<script>
 			function Engines(Enjoy){
-				const base=document.getElementById("Engines"),val=()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1].value;
+				const base=document.querySelector('#Engines'),sel=()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1],val=()=>Engines("sel")().value;
 				function newarea(value,target=Engines("base")){
 					let Content=document.createElement("textarea");
-					Content.className="EnginesContent";
-					Content.value = value;
+					Content.setAttribute("class","EnginesContent");
+					Content.setAttribute("rows",15);
+					Content.setAttribute("cols","40%");
+					Content.value=value;
 					target.appendChild(Content);
 					return Content;
 				}
@@ -857,8 +859,8 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					Engines("base").lastChild.remove();
 				}
 				function change(obj,target=Engines("base")) {
-					target.innerHTML = "";
-					Engines("insert")(obj,target);
+					target.innerHTML = obj;
+					Engines("scriptfinder")(Engines("base"));
 				}
 				let n=newopen,d=deleted,s=download,i=insert,up=upload;
 				return eval(Enjoy);
@@ -9017,7 +9019,7 @@ setEscape("language-html",document.getElementById("docsify"),document.getElement
 <li>2024.03.27
 	<ul>
 		<li>各位剧组成员：
-			在大家的不懈努力下，我班心理剧初选阶段录制工作宣告胜利结束(๑>ڡ<)，在这里首先要和从上学期奋斗到这学期、为剧组初选工作付出大量努力的同学们道一声：“大家辛苦啦！(≧∇≦)”
+			在大家的不懈努力下，我班心理剧初选阶段录制工作宣告胜利结束(๑&gt;ڡ&lt;)，在这里首先要和从上学期奋斗到这学期、为剧组初选工作付出大量努力的同学们道一声：“大家辛苦啦！(≧∇≦)”
 				在这段时间中，由于相对密集的排练，能够明显感觉到剧组的大家都很累，因此现阶段大家可以松一口气，认真备战月考，并且把排练带来的疲劳疗愈一下。
 				但必须承认，这次的演出剧本有一定的不足之处：时间过短，以及心理剧技术运用不足，未能完美的实现心理剧本身所具有的疗愈作用（当然作为一个基于真实事件改编的校园情景剧来说属于是相当完美了），因此希望各位同学积极考虑如何改编剧本以达到作为心理剧本身更好的效果，集思广益，为剧本的润色、完善提供更多的思路。当然也不必操之过急，可以先在心中酝酿一下思路，在复选结果出来后再作进一步考虑。现阶段不必太在意。
 				就我所掌握的信息来看，这次校内比赛共有如意校区3个班、呼伦校区6~7个班，最后到底选几个班尚未确定，但可以确定的是，若某个班披荆斩棘走到最后，就能够参加市级比赛。
