@@ -378,7 +378,6 @@
 
 <script>
 	window.starail=(window.location.href!="https://xcvyu.github.io/")?"./starail.png":"./img/starail.png";
-	window.loadedscript=[];
 	function NodeMove(origin , target , method){
 		eval(`target.${method}(origin)`.replace("inner","appendChild"));
 		//NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before")
@@ -418,6 +417,7 @@
 				script.onload=init;
 			}
 		}
+		window.loadedscript = window.loadedscript || [];
 		if(window.loadedscript.indexOf(src)!=-1){
 			init();
 			return;
@@ -593,7 +593,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 		include("https://cdn.bootcdn.net/ajax/libs/vConsole/3.15.1/vconsole.min.js",()=>{new VConsole()});
 	}
 	function erudaer(){
-		include("https://cdn.jsdelivr.net/npm/eruda",eruda.init);
+		include("https://cdn.jsdelivr.net/npm/eruda",()=>{eruda.init()});
 	}
 	/*console.log = (function (logFunc, isLog = true, isLogStack = true) {
 	return function () {
