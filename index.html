@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <script>const startime = new Date().getTime();</script>
-<title>xcvyu-log</title>
+<!--[if lte IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if lte IE 9]><script src="https://cdn.bootcdn.net/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script><![endif]-->
 <!--inboxer<li class="card" id="inboxer">这里就是速记板啦~内容记得随时迁移~
 - 调整编辑名单，把总编，社长，编辑部成员，荣誉出版人加上
 - 目录、页码
@@ -16,29 +17,20 @@
 	- 答《算命？改命？你都想要》 行归 13
 	- 欢迎来稿 15
 </li>inboxer-->
+<title>xcvyu-log</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta lang="zh-CN" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
 <meta name="color-scheme" content="light dark">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
-<!--[if lte IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<!--[if lte IE 9]><script src="https://cdn.bootcdn.net/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script><![endif]-->
-<link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAigAAAOEAAAD8AAAA+gAAAO0AAADDAAAAdQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAAAAuAAAAP0AAADAAAAAagAAAFgAAABxAAAApwAAAN8AAADUAAAAZAAAAAkAAAAAAAAAAAAAAAAAAAAGAAAAnQAAAP8AAADFAAAAGwAAAAAAAAAAAAAAAAAAAAMAAAAmAAAAiwAAAOkAAACZAAAAFAAAAAAAAAAAAAAAPQAAAO8AAAD/AAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAABTAAAA5QAAAJEAAAABAAAAAAAAAIAAAAD/AAAA+gAAAE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoAAABTAAAAAAAAAAIAAACoAAAA/wAAAPwAAABSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAswAAAP8AAAD/AAAAbQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAKcAAAD/AAAA/wAAAJQAAAAEAAAABAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAA/wAAAP8AAADmAAAAuAAAALUAAACtAAAAnAAAAH4AAABRAAAAHgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAATAAAAPcAAAD/AAAA+QAAAKsAAACVAAAAnwAAALEAAADMAAAA5wAAAN0AAACDAAAAFgAAAAAAAAAAAAAAAAAAABMAAADGAAAA/wAAAPwAAABcAAAAAAAAAAAAAAADAAAADwAAADEAAACTAAAA9QAAAKYAAAAOAAAAAAAAAAAAAAAAAAAAXAAAAPYAAAD/AAAAuQAAAA8AAAAAAAAAAAAAAAAAAAAAAAAABQAAAI0AAAD5AAAAUQAAAAAAAAAAAAAAAAAAAAgAAACQAAAA/QAAAPsAAAB0AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA/AAAA+AAAAIEAAAAAAAAAAAAAAAAAAAAAAAAADgAAAIsAAAD2AAAA7gAAAGkAAAAKAAAAAAAAAAAAAAAAAAAAXQAAAP0AAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAVwAAAMoAAAD0AAAAuAAAAHAAAABYAAAAegAAAN8AAADdAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZAAAAbgAAAMgAAAD0AAAA/QAAAPUAAAC7AAAAQQAAAAAAAAAA4AcAAMADAACDgQAAh+AAAIf4AAAH+QAAB/8AAAB/AACABwAAgAMAAIIBAADB4QAAwPEAAOBxAADwAQAA/AEAAA==" />
-<link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAigAAAOEAAAD8AAAA+gAAAO0AAADDAAAAdQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAAAAuAAAAP0AAADAAAAAagAAAFgAAABxAAAApwAAAN8AAADUAAAAZAAAAAkAAAAAAAAAAAAAAAAAAAAGAAAAnQAAAP8AAADFAAAAGwAAAAAAAAAAAAAAAAAAAAMAAAAmAAAAiwAAAOkAAACZAAAAFAAAAAAAAAAAAAAAPQAAAO8AAAD/AAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAABTAAAA5QAAAJEAAAABAAAAAAAAAIAAAAD/AAAA+gAAAE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoAAABTAAAAAAAAAAIAAACoAAAA/wAAAPwAAABSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAswAAAP8AAAD/AAAAbQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAKcAAAD/AAAA/wAAAJQAAAAEAAAABAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAA/wAAAP8AAADmAAAAuAAAALUAAACtAAAAnAAAAH4AAABRAAAAHgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAATAAAAPcAAAD/AAAA+QAAAKsAAACVAAAAnwAAALEAAADMAAAA5wAAAN0AAACDAAAAFgAAAAAAAAAAAAAAAAAAABMAAADGAAAA/wAAAPwAAABcAAAAAAAAAAAAAAADAAAADwAAADEAAACTAAAA9QAAAKYAAAAOAAAAAAAAAAAAAAAAAAAAXAAAAPYAAAD/AAAAuQAAAA8AAAAAAAAAAAAAAAAAAAAAAAAABQAAAI0AAAD5AAAAUQAAAAAAAAAAAAAAAAAAAAgAAACQAAAA/QAAAPsAAAB0AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA/AAAA+AAAAIEAAAAAAAAAAAAAAAAAAAAAAAAADgAAAIsAAAD2AAAA7gAAAGkAAAAKAAAAAAAAAAAAAAAAAAAAXQAAAP0AAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAVwAAAMoAAAD0AAAAuAAAAHAAAABYAAAAegAAAN8AAADdAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZAAAAbgAAAMgAAAD0AAAA/QAAAPUAAAC7AAAAQQAAAAAAAAAA4AcAAMADAACDgQAAh+AAAIf4AAAH+QAAB/8AAAB/AACABwAAgAMAAIIBAADB4QAAwPEAAOBxAADwAQAA/AEAAA==" />
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css"/>
-<link href="https://cubox.pro/article/css/reader.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico/css/pico.min.css"> -->
-<link rel="preload" href="./fonts/OPPOSans-Regular.ttf" as="font" crossorigin="anonymous">
-<link href="" rel="stylesheet" id="highlightjs-change">
-<style type="text/css">
+<style>
 	:root {
-		--back: #FFF;
-		--box-shadow: #DDDDDD;
-		--bg: #FAFAFA;
-		--tr: #F2F2F2;
-	}
+	--back: #FFF;
+	--box-shadow: #DDDDDD;
+	--bg: #FAFAFA;
+	--tr: #F2F2F2;
+}
 
 	@media (prefers-color-scheme: dark) {
 		:root {
@@ -49,17 +41,13 @@
 		}
 	}
 
-	.card{
-		/*opacity: 0.8;*/
-	}
-
 	/* @font-face {
 		font-family: PingFangSC-Light , SourceHanSansCN-ExtraLight;
 		src: url("./fonts/PingFangSC-Light.ttf");
 		src: url("https://xcvyu.github.io/fonts/PingFangSC-Light.ttf");
 		font-weight: 100;
 	}
-	
+
 	@font-face {
 		font-family: OPPOSans;
 		src: url("./fonts/OPPOSans-Regular.ttf");
@@ -71,6 +59,7 @@
 	}*/
 
 	body {
+		width: 100%;
 		background: var(--bg);
 		/*background: url("./starail.png") no-repeat center center fixed;
 		-webkit-background-size: cover;
@@ -81,9 +70,10 @@
 	.card {
 		border: 1px solid /*skyblue*/#2376b7;
 		margin: 20px 0;
-		/*background: var(--back);*/
+		background: var(--back);
 		padding: 20px;
 		border-radius: 6px;
+		opacity: 0.8;
 	}
 
 	.card:hover {
@@ -228,7 +218,7 @@
 		border-left: 10px solid #ccc;
 		margin: 1.5em 10px;
 		padding: 0.5em 10px;
-		quotes: "\201C" "\201D" "\2018" "\2019";
+		quotes: "\\201C" "\\201D" "\\2018" "\\2019";
 	}
 
 	blockquote:before {
@@ -246,15 +236,13 @@
 
 	textarea {
 		font-size: 0.8rem;
-		letter-spacing: 1px;
-	}
-
-	textarea {
+		font-size: 16px;
 		padding: 10px;
-		max-width: 100%;
 		border-radius: 5px;
 		border: 1px solid #ccc;
 		box-shadow: 1px 1px 1px #999;
+		background: transparent;
+		width: 95%;
 	}
 
 	#flashcard_button {
@@ -375,416 +363,538 @@
 		white-space: pre;
 	}
 </style>
-
 <script>
 	window.starail=(window.location.href!="https://xcvyu.github.io/")?"./starail.png":"./img/starail.png";
-	function NodeMove(origin , target , method){
-		eval(`target.${method}(origin)`.replace("inner","appendChild"));
-		//NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before")
-	}
-	function include(src,init=function(){},method="scriptag"){
-		function fetcher(processor=function(){}){
-			fetch(src)
-			.then(response => response.text())
-			.then(processor)
-			.then(init)
-			.catch(err => console.error('Failed to fetch script', err));
-		}
-		function requester(){
-			const xhr = new XMLHttpRequest();
-			xhr.open('GET', src, true);
-			xhr.onreadystatechange = function() {if (xhr.readyState === 4 && xhr.status === 200) processor(xhr.responseText)};
-			xhr.send();
-		}
-		function newfunctioner(method){
-			(new Function(method))()
-		}
-		function module(){
-			import(src).then(init)//module(.js/.mjs) can used
-		}
-		function scriptag(){
-			let script = document.createElement('script');
-			script.src = src;
-			document.head.appendChild(script);
-			if(script.readyState){
-				script.onreadystatechange = function(){
-					if(script.readyState=="loaded" || script.readyState=="complete"){
-						script.onreadystatechange=null;
-						init();
-					}
-				}
-			}else {
-				script.onload=init;
-			}
-		}
-		window.loadedscript = window.loadedscript || [];
-		if(window.loadedscript.indexOf(src)!=-1){
-			init();
-			return;
-		}
-		window.loadedscript.push(src);
-		eval(method)();
-	}
-	// include("./Localization.js",()=>{},"module");
-	fetch("./bookmarks.html")
+function NodeMove(origin , target , method){
+	eval(`target.${method}(origin)`.replace("inner","appendChild"));
+	//NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before")
+}
+function internet(src,processor=function(){},method="fetcher"){
+	function fetcher(src,processor){
+		fetch(src)
 		.then(response => response.text())
-		.then(text => {
-			let Node=document.createElement("div");
-			Node.innerHTML = text;
-			NodeMove(Node,document.getElementById("bookmarks_before"),"before");
-		}
-	);
-	fetch(window.location.href)
-		.then(response => response.text())
-		.then(text => {window.sourcer=text});
-	// for (let i of document.head.childNodes)if(i.nodeType == 8 && i.nodeValue==" cssInJs:begin ")NodeMove(opacityor,i,"after");
-	fontfamily=[
-		{
-			"name":"OPPOSans-Regular",
-			"link":"url('./fonts/OPPOSans-Regular.ttf')"
-		},
-		{
-			"name":"PingFangSC-Light",
-			"link":"url('./fonts/PingFangSC-Light.ttf')"
-		},
-		{
-			"name":"Fira",
-			"link":"url('./fonts/FiraCodeNerdFont-Light.ttf')"
-		}
-	];
-	function fontswitch(font=0 , elements=document.body){
-		let fontname = fontfamily[font]['name'];
-		if(document.fonts.check(`12px ${fontname}`)){
-			document.fonts.add(new FontFace(fontname, fontfamily[font]['link'], { weight: "100" }))
-		}
-		if(elements != null && typeof elements[Symbol.iterator] === 'function'){
-			for(let element of elements)element.style.fontFamily=fontname
-		}else {
-			elements.style.fontFamily=fontname
-		}
+		.then(processor)
+		.catch(err => console.error('Failed to fetch script', err));
 	}
-	function opacityall(opacity=0.8 , elements="all"){
-		if(elements=="all"){
-			document.styleSheets[1].deleteRule(2);
-			document.styleSheets[1].insertRule(`	.card{
-		opacity: ${opacity};
-	}`,2);
-		}
-		else if(Array.isArray(elements)){
-			elements.style.opacity=opacity
-		}else {
-			elements.forEach((element)=>{element.style.opacity=opacity})
-		}
+	function requester(src,processor){
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', src, true);
+		xhr.onreadystatechange = function() {if (xhr.readyState === 4 && xhr.status === 200) processor(xhr.responseText)};
+		xhr.send();
 	}
-	function backgrounder(src , position="center" , elements=document.body) {
-		elements.style.background = `url(${src}) no-repeat ${position}/cover fixed`;
+	return eval(method)(src,processor);
+}
+function Exec(str){
+	function newfunctioner(method){
+		(new Function(method))()
 	}
-	// MathJax (LaTeX)
-	function MathSaverOld(){
-		include("https://cdn.bootcdn.net/ajax/libs/mathjax/2.7.7/MathJax.js");
-		let MathJaxConfig=document.createElement("script");
-		MathJaxConfig.type="text/x-mathjax-config";
-		MathJaxConfig.innerHTML=`window.mathjaxconfig={
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true
-	},
-	"HTML-CSS": { fonts: ["TeX"] }
-	};
-MathJax.Hub.Config(window.mathjaxconfig);`
-		document.head.appendChild(MathJaxConfig);
-	}
-	function MathSaver(mathconfig){
-		window.MathJax = mathconfig;
+	const Evaler = eval;
+	return eval(str);
+}
+function importag(method){
+	function scriptag(src,init){
 		let script = document.createElement('script');
-		script.src = "https://cdn.bootcdn.net/ajax/libs/mathjax/4.0.0-alpha.1/es5/tex-svg.js";
-		// https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js
-		script.id = "MathJax-script";
-		script.async = true;
+		script.src = src;
 		document.head.appendChild(script);
-		// script.remove()
-		// MathJax.startup.getComponents()
-	}
-	MathSaver({
-		tex: {
-			inlineMath: [['$', '$']/*, ['\\(', '\\)']*/],
-			displayMath: [['$$', '$$']]
-		},
-		svg: {
-			fontCache: 'global'
-		},
-		mml: {
-			forceReparse: true
-		}
-	})
-	function highlightjser(){
-		let highlightused={
-			js:[
-				"https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/highlight./min.js",
-				"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@8.0/build/highlight.min.js",
-				"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/es/highlight.min.js",
-				["//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js",()=>{hljs.initHighlightingOnLoad();hljs.initLineNumbersOnLoad();}],
-				"//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
-			],
-			css:[
-				"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css#Github",
-				"https://highlightjs.org/static/demo/styles/github-dark-dimmed.css",
-				"http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css#monokai",
-				"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"
-			]
-		};
-		let highlightjs_i = 0;
-		let highlightjs_color = [
-			"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.css#Github",
-			"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css#Github",
-			"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/base16/monokai.css"
-		];
-		function highlightjs_nextone() {
-			highlightjs_next = highlightjs_color[highlightjs_i];
-			document.getElementById("highlightjs-change").href = highlightjs_next;
-			highlightjs_i = highlightjs_i + 1;
-		}
-		highlightjs_nextone();
-		document.getElementById("hljs_eventer").onclick=highlightjs_nextone;
-		include("https://cdn.bootcdn.net/ajax/libs/labjs/2.0.3/LAB.min.js",()=>{
-			$LAB
-			.script("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js")
-			.wait(()=>{hljs.highlightAll();})
-			.script("https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js")
-			.wait(()=>{
-				$("code").each(function(){
-					$(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
-				});
-			})
-		})
-	}
-	function vuemarkdown(){
-		include("https://unpkg.com/vue@2.6.10/dist/vue.min.js",()=>{
-			include("https://cdn.jsdelivr.net/npm/vue-markdown/dist/vue-markdown.js",()=>{
-				Vue.use(VueMarkdown);
-				new Vue({
-					el: '#儿童节'
-				});
-				new Vue({
-					el: '#青科赛2'
-				});
-				eval(document.getElementById("beforeVue").innerHTML);
-			});
-		});
-	}
-	function vditorinit(){
-		include("https://cdn.jsdelivr.net/npm/vditor/dist/index.min.js");
-		let vditorcss=document.createElement("link");
-		vditorcss.setAttribute("rel","stylesheet");
-		vditorcss.setAttribute("href","https://cdn.jsdelivr.net/npm/vditor/dist/index.css");
-		NodeMove(vditorcss,document.getElementById("vditor"),"before");
-		new Vditor('vditor', {
-			cache: {
-				enable: false,
-			},
-			height: 360,
-			"placeholder": "写点什么吧..."
-		})
-	}
-	function vconsoler(){
-		include("https://cdn.bootcdn.net/ajax/libs/vConsole/3.15.1/vconsole.min.js",()=>{new VConsole()});
-	}
-	function erudaer(){
-		include("https://cdn.jsdelivr.net/npm/eruda",()=>{eruda.init()});
-	}
-	/*console.log = (function (logFunc, isLog = true, isLogStack = true) {
-	return function () {
-		if (!isLog) {
-			return
-		}
-		try {
-			let arr = []
-			arr.push(...arguments)
-			arr.forEach((item, index) => {
-				if (Object.prototype.toString.call(item) === '[object Object]' ||
-				Object.prototype.toString.call(item) === '[object Array]') {
-				arr[index] = JSON.parse(JSON.stringify(item))
+		if(script.readyState){
+			script.onreadystatechange = function(){
+				if(script.readyState=="loaded" || script.readyState=="complete"){
+					script.onreadystatechange=null;
+					init();
 				}
-			})
-			logFunc.call(console, ...arr)
-			isLogStack ? console.trace() : null
-		} catch (e) {
-			console.log(`a log error: ${e}`)
-		}
-	}
-	})(console.log)
-	console.error=(function (oriLogFunc) {
-		return function () {
-			oriLogFunc(...arguments);
-			if(test!=undefined)test=[...arguments][0];
-		}
-	})(console.error);*/
-	function inboxerhelp(){
-		document.documentElement.innerHTML=document.documentElement.innerHTML.replace("<!--inboxer","").replace("inboxer-->","");
-		// document.write(document.documentElement.innerHTML);
-		// new Vue({
-		// 	el: '#inboxer'
-		// });
-		include("https://cdn.jsdelivr.net/npm/marked/marked.min.js",()=>{
-			NodeMove((function (){
-					let Node=document.adoptNode(document.getElementById("inboxer"));
-					Node.innerHTML=marked.parse(Node.innerHTML);
-					return Node;
-				})(),document.getElementById("rooter"),"inner");
-		});
-	}
-	function pbrowser(){
-		for(let i of document.getElementsByTagName("p-browser")){
-			let pfbrowser=document.importNode(document.getElementById("pbrowser_template").content.querySelector("a"), true);
-			pfbrowser.id=pfbrowser.id.replace(/{{i}}/g, i.innerHTML);
-			i.before(pfbrowser);
-			let pfbrowser2=document.importNode(document.getElementById("pbrowser_template").content.querySelector("li"), true);
-			pfbrowser2.innerHTML=pfbrowser2.innerHTML.replace(/{{i}}/g, i.innerHTML);
-			document.getElementById('p.browser').appendChild(pfbrowser2);
-		}
-		while(document.getElementsByTagName("p-browser").length>0){
-			document.getElementsByTagName("p-browser")[0].remove();
-		}
-		for(let i of document.querySelectorAll('a[href^="#"]'))i.setAttribute("target","_self");
-	}
-	function baser(href = document.location.href , target = "_blank"){
-		base=document.createElement("base");
-		base.setAttribute("href",href);
-		base.setAttribute("target",target);
-		document.getElementsByTagName("style")[0].before(base);
-	}
-	function imgonerror(){
-		for(let i of document.getElementsByTagName("img")){
-			i.onerror=function(){
-				let g=document.createElement("mark");
-				g.innerHTML="image 404!";
-				this.before(g);
-				this.remove();
 			}
+		}else {
+			script.onload=init;
 		}
 	}
-	function setEscape(type , origin , target){
-		let setEscaper = document.createElement("code");
-		setEscaper.className=type;
-		setEscaper.innerHTML=HtmlUtil.html2Escape(Array.from(origin.childNodes).find(node => node.nodeType === Node.COMMENT_NODE && node.textContent.trim()).textContent.trim());
-		target.appendChild(setEscaper);
-		hljs.highlightElement(setEscaper);
+	function csstag(src,init){
+		let link=document.createElement("link");
+		link.setAttribute("rel", "stylesheet");
+		link.setAttribute("type", "text/css");
+		link.setAttribute("href", src);
+		document.head.appendChild(link);
+		init(link);
+	}
+	return eval(method);
+}
+
+function include(src,init=function(){},method="scriptag"){
+	const first = (src,init)=>internet(src,text=>{eval(text);init()},"fetcher");
+	const second = (src,init)=>internet(src,text=>{Exec("newfunctioner")(text);init()},"fetcher");
+	const scriptag = (src,init)=>{
+		importag("scriptag")(src,init)
+	}
+	const csstag = (src,init)=>{
+		importag("csstag")(src,init)
+	}
+	function module(src,init){
+		import(src).then(init)//module(.js/.mjs) can used
+	}
+	return eval(method)(src,init);
+}
+
+function loader(src,init=()=>{},filetype){
+	window.loadlist = window.loadlist || [];
+	const querystate=src=>{
+		for(let i of window.loadlist){
+			if(i["src"]===src)return i
+		}
+		return {state:"toload"}
+	}
+	const scriptag = (src,init)=>{
+		include(src,(script)=>{
+			init(script);
+			querystate(src).state="loaded";
+		})
+	}
+	const csstag = (src,init)=>{
+		include(src,(link)=>{
+			init(link);
+			querystate(src).state="loaded";
+		},"csstag");
+	}
+	switch (querystate(src).state){
+		case "toload":
+			window.loadlist.push({"src":src,"state":"loading"});
+			if(filetype==="css"){
+				csstag(src,init);
+			}else{
+				scriptag(src,init);
+			}
+			break;
+		case "loading":{
+			let needload = setInterval(() => {
+				if((function(){
+					for(let i of window.loadlist){
+						if(i["src"]===src)return i
+					}
+					return {state:"toload"}
+				})(src).state==="loaded"){
+					init();
+					clearInterval(needload);
+				}
+			}, 1024);
+			break;
+		}
+		case "loaded":
+			init();
+			break;
+	}
+	return window;
+}
+
+function includer(toload,i=0){
+	if(i>=toload.length-1){
 		return;
+	}else if(typeof toload[i]==="function"){
+		toload[i]();
+		includer(toload,i+1);
+	}else {
+		include(toload[i],()=>{includer(toload,i+1)})
 	}
-	function flomoer(name,type){
-		if(name==undefined)name="flomo";
-		if(type==undefined)type="language-html";
-		while(document.getElementsByClassName(name).length>0){
-			let i=document.getElementsByClassName(name)[0];
-			let flomotimer=setInterval(() =>{
-				if(i.parentNode.open){
-					clearInterval(flomotimer);
-					setEscape(type,i,i);
-				}
-			},100);
-			i.setAttribute("class",name+"ed");
-		}
+}
+loader("data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcAAAAigAAAOEAAAD8AAAA+gAAAO0AAADDAAAAdQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAAAAuAAAAP0AAADAAAAAagAAAFgAAABxAAAApwAAAN8AAADUAAAAZAAAAAkAAAAAAAAAAAAAAAAAAAAGAAAAnQAAAP8AAADFAAAAGwAAAAAAAAAAAAAAAAAAAAMAAAAmAAAAiwAAAOkAAACZAAAAFAAAAAAAAAAAAAAAPQAAAO8AAAD/AAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAABTAAAA5QAAAJEAAAABAAAAAAAAAIAAAAD/AAAA+gAAAE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoAAABTAAAAAAAAAAIAAACoAAAA/wAAAPwAAABSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAswAAAP8AAAD/AAAAbQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAKcAAAD/AAAA/wAAAJQAAAAEAAAABAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAA/wAAAP8AAADmAAAAuAAAALUAAACtAAAAnAAAAH4AAABRAAAAHgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAATAAAAPcAAAD/AAAA+QAAAKsAAACVAAAAnwAAALEAAADMAAAA5wAAAN0AAACDAAAAFgAAAAAAAAAAAAAAAAAAABMAAADGAAAA/wAAAPwAAABcAAAAAAAAAAAAAAADAAAADwAAADEAAACTAAAA9QAAAKYAAAAOAAAAAAAAAAAAAAAAAAAAXAAAAPYAAAD/AAAAuQAAAA8AAAAAAAAAAAAAAAAAAAAAAAAABQAAAI0AAAD5AAAAUQAAAAAAAAAAAAAAAAAAAAgAAACQAAAA/QAAAPsAAAB0AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA/AAAA+AAAAIEAAAAAAAAAAAAAAAAAAAAAAAAADgAAAIsAAAD2AAAA7gAAAGkAAAAKAAAAAAAAAAAAAAAAAAAAXQAAAP0AAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAVwAAAMoAAAD0AAAAuAAAAHAAAABYAAAAegAAAN8AAADdAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZAAAAbgAAAMgAAAD0AAAA/QAAAPUAAAC7AAAAQQAAAAAAAAAA4AcAAMADAACDgQAAh+AAAIf4AAAH+QAAB/8AAAB/AACABwAAgAMAAIIBAADB4QAAwPEAAOBxAADwAQAA/AEAAA==",link=>link.setAttribute("rel","shortcut icon"),"css");
+// loader(icona,link=>link.setAttribute("rel","icon"),"css");
+// loader("./Localization.js",()=>{},"module");
+internet("./bookmarks.html",text => {
+	let Node=document.createElement("div");
+	Node.innerHTML = text;
+	NodeMove(Node,document.getElementById("bookmarks_before"),"before");
+});
+internet(window.location.href,text => {window.sourcer=text});
+// for (let i of document.head.childNodes)if(i.nodeType == 8 && i.nodeValue==" cssInJs:begin ")NodeMove(opacityor,i,"after");
+// loader("https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900",()=>{},"css");
+// loader("https://cdn.jsdelivr.net/npm/docsify/themes/vue.css",()=>{},"css");
+// loader("https://cubox.pro/article/css/reader.css",()=>{},"css");
+// loader("https://cdn.jsdelivr.net/npm/@picocss/pico/css/pico.min.css",()=>{},"css");
+loader("./fonts/OPPOSans-Regular.ttf",link=>{link.removeAttribute("type");link.setAttribute("as","font");link.setAttribute("rel","preload");link.setAttribute("crossorigin","anonymous")},"css");
+fontfamily=[
+	{
+		"name":"OPPOSans-Regular",
+		"link":"url('./fonts/OPPOSans-Regular.ttf')"
+	},
+	{
+		"name":"PingFangSC-Light",
+		"link":"url('./fonts/PingFangSC-Light.ttf')"
+	},
+	{
+		"name":"Fira",
+		"link":"url('./fonts/FiraCodeNerdFont-Light.ttf')"
 	}
-	function print_PerformanceEntries() {
-		// See: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry#Example
-		// Use getEntries() to get a list of all performance entries
-		function print_PerformanceEntry(perfEntry) {
-			let properties = ["name","entryType","startTime","duration"];
-			for (let i=0; i < properties.length; i++) {
-				// Check each property
-				let supported = properties[i] in perfEntry;
-				if (supported) {
-					let value = perfEntry[properties[i]];
-					console.log("... " + properties[i] + " = " + value);
-				} else {
-					console.log("... " + properties[i] + " is NOT supported");
-				}
+];
+function fontswitch(font=0 , elements=document.body){
+	let fontname = fontfamily[font]['name'];
+	if(document.fonts.check(`12px ${fontname}`)){
+		document.fonts.add(new FontFace(fontname, fontfamily[font]['link'], { weight: "100" }))
+	}
+	if(elements != null && typeof elements[Symbol.iterator] === 'function'){
+		for(let element of elements)element.style.fontFamily=fontname
+	}else {
+		elements.style.fontFamily=fontname
+	}
+}
+function opacityall(opacity=0.8 , elements="all"){
+	if(elements=="all"){
+		/*document.querySelector("#MyStyle").sheet.deleteRule(2);
+		document.querySelector("#MyStyle").sheet.insertRule(`	.card{
+	opacity: ${opacity};
+}`,2);*/
+		for(let i of document.querySelector("#MyStyle").sheet["cssRules"])if(i.selectorText=='.card')i.style.opacity=`${opacity}`
+	}
+	else if(Array.isArray(elements)){
+		elements.style.opacity=opacity
+	}else {
+		elements.forEach((element)=>{element.style.opacity=opacity})
+	}
+}
+function backgrounder(src , position="center" , elements=document.body) {
+	elements.style.background = `url(${src}) no-repeat ${position}/cover fixed`;
+}
+// MathJax (LaTeX)
+function MathSaverOld(){
+	loader("https://cdn.bootcdn.net/ajax/libs/mathjax/2.7.7/MathJax.js");
+	let MathJaxConfig=document.createElement("script");
+	MathJaxConfig.type="text/x-mathjax-config";
+	MathJaxConfig.innerHTML=`window.mathjaxconfig={
+extensions: ["tex2jax.js"],
+jax: ["input/TeX", "output/HTML-CSS"],
+tex2jax: {
+	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+	processEscapes: true
+},
+"HTML-CSS": { fonts: ["TeX"] }
+};
+MathJax.Hub.Config(window.mathjaxconfig);`
+	document.head.appendChild(MathJaxConfig);
+}
+function MathSaver(mathconfig){
+	window.MathJax = mathconfig;
+	let script = document.createElement('script');
+	script.src = "https://cdn.bootcdn.net/ajax/libs/mathjax/4.0.0-alpha.1/es5/tex-svg.js";
+	// https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js
+	script.id = "MathJax-script";
+	script.async = true;
+	document.head.appendChild(script);
+	// script.remove()
+	// MathJax.startup.getComponents()
+}
+MathSaver({
+	tex: {
+		inlineMath: [['$', '$']/*, ['\\(', '\\)']*/],
+		displayMath: [['$$', '$$']]
+	},
+	svg: {
+		fontCache: 'global'
+	},
+	mml: {
+		forceReparse: true
+	}
+})
+function highlightjser(){
+	let highlightused={
+		js:[
+			"https://cdn.bootcdn.net/ajax/libs/highlight.js/8.0/highlight./min.js",
+			"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@8.0/build/highlight.min.js",
+			"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/es/highlight.min.js",
+			["//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js",()=>{hljs.initHighlightingOnLoad();hljs.initLineNumbersOnLoad();}],
+			"//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
+		],
+		css:[
+			"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.8.0/styles/github-dark-dimmed.min.css#Github",
+			"https://highlightjs.org/static/demo/styles/github-dark-dimmed.css",
+			"http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css#monokai",
+			"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"
+		]
+	};
+	let highlightjs_i = 0;
+	let highlightjs_color = [
+		"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.css#Github",
+		"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css#Github",
+		"https://cdn.bootcdn.net/ajax/libs/highlight.js/11.9.0/styles/base16/monokai.css"
+	];
+	loader("",link=>link.setAttribute("id","highlightjs-change"),"css");
+	function highlightjs_nextone() {
+		highlightjs_next = highlightjs_color[highlightjs_i];
+		document.getElementById("highlightjs-change").href = highlightjs_next;
+		highlightjs_i = highlightjs_i + 1;
+	}
+	highlightjs_nextone();
+	document.getElementById("hljs_eventer").onclick=highlightjs_nextone;
+	loader("https://cdn.bootcdn.net/ajax/libs/labjs/2.0.3/LAB.min.js",()=>{
+		$LAB
+		.script("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js")
+		.wait(()=>{hljs.highlightAll()})
+		.script("https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js")
+		.wait(()=>{
+			$("code").each(function(){
+				$(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>")
+			})
+		})
+	})
+	/*includer(["https://cdn.bootcdn.net/ajax/libs/labjs/2.0.3/LAB.min.js","https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js",()=>{hljs.highlightAll()},"https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js",()=>{$("code").each(function(){$(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>")})}])*/
+}
+function vuemarkdown(){
+	loader("https://unpkg.com/vue@2.6.10/dist/vue.min.js",()=>{
+		loader("https://cdn.jsdelivr.net/npm/vue-markdown/dist/vue-markdown.js",()=>{
+			Vue.use(VueMarkdown);
+			new Vue({
+				el: '#儿童节'
+			});
+			new Vue({
+				el: '#青科赛2'
+			});
+			eval(document.getElementById("beforeVue").innerHTML);
+		});
+	});
+}
+function vditorinit(){
+	loader("https://cdn.jsdelivr.net/npm/vditor/dist/index.min.js");
+	let vditorcss=document.createElement("link");
+	vditorcss.setAttribute("rel","stylesheet");
+	vditorcss.setAttribute("href","https://cdn.jsdelivr.net/npm/vditor/dist/index.css");
+	NodeMove(vditorcss,document.getElementById("vditor"),"before");
+	new Vditor('vditor', {
+		cache: {
+			enable: false,
+		},
+		height: 360,
+		"placeholder": "写点什么吧..."
+	})
+}
+function vconsoler(){
+	loader("https://cdn.bootcdn.net/ajax/libs/vConsole/3.15.1/vconsole.min.js",()=>{new VConsole()});
+}
+function erudaer(){
+	loader("https://cdn.jsdelivr.net/npm/eruda",()=>{eruda.init()});
+}
+/*console.log = (function (logFunc, isLog = true, isLogStack = true) {
+return function () {
+	if (!isLog) {
+		return
+	}
+	try {
+		let arr = []
+		arr.push(...arguments)
+		arr.forEach((item, index) => {
+			if (Object.prototype.toString.call(item) === '[object Object]' ||
+			Object.prototype.toString.call(item) === '[object Array]') {
+			arr[index] = JSON.parse(JSON.stringify(item))
 			}
-		}
-		console.groupCollapsed(PerformanceEntry);
-		let p = performance.getEntries();
-		for (let i=0; i < p.length; i++) {
-			console.log("PerformanceEntry[" + i + "]");
-			print_PerformanceEntry(p[i]);
-		}
-		console.groupEnd();
+		})
+		logFunc.call(console, ...arr)
+		isLogStack ? console.trace() : null
+	} catch (e) {
+		console.log(`a log error: ${e}`)
 	}
-	function sleep(milliseconds) {
-		const date = Date.now();
-		do {
-			let currentDate = Date.now();
-		} while (currentDate - date < milliseconds);
+}
+})(console.log)
+console.error=(function (oriLogFunc) {
+	return function () {
+		oriLogFunc(...arguments);
+		if(test!=undefined)test=[...arguments][0];
 	}
-	function deepClone(source) {
-		if (typeof source !== 'object' || source == null) {
-			return source;
+})(console.error);*/
+function inboxerhelp(){
+	document.documentElement.innerHTML=document.documentElement.innerHTML.replace("<!--inboxer","").replace("inboxer-->","");
+	// document.write(document.documentElement.innerHTML);
+	// new Vue({
+	// 	el: '#inboxer'
+	// });
+	loader("https://cdn.jsdelivr.net/npm/marked/marked.min.js",()=>{
+		NodeMove((function (){
+				let Node=document.adoptNode(document.getElementById("inboxer"));
+				Node.innerHTML=marked.parse(Node.innerHTML);
+				return Node;
+			})(),document.getElementById("rooter"),"inner");
+	});
+}
+function pbrowser(){
+	for(let i of document.getElementsByTagName("p-browser")){
+		let pfbrowser=document.importNode(document.getElementById("pbrowser_template").content.querySelector("a"), true);
+		pfbrowser.id=pfbrowser.id.replace(/{{i}}/g, i.innerHTML);
+		i.before(pfbrowser);
+		let pfbrowser2=document.importNode(document.getElementById("pbrowser_template").content.querySelector("li"), true);
+		pfbrowser2.innerHTML=pfbrowser2.innerHTML.replace(/{{i}}/g, i.innerHTML);
+		document.getElementById('p.browser').appendChild(pfbrowser2);
+	}
+	while(document.getElementsByTagName("p-browser").length>0){
+		document.getElementsByTagName("p-browser")[0].remove();
+	}
+	for(let i of document.querySelectorAll('a[href^="#"]'))i.setAttribute("target","_self");
+}
+function baser(href = document.location.href , target = "_blank"){
+	base=document.createElement("base");
+	base.setAttribute("href",href);
+	base.setAttribute("target",target);
+	document.getElementsByTagName("style")[0].before(base);
+}
+function imgonerror(){
+	for(let i of document.getElementsByTagName("img")){
+		i.onerror=function(){
+			let g=document.createElement("mark");
+			g.innerHTML="image 404!";
+			this.before(g);
+			this.remove();
 		}
-		const target = Array.isArray(source) ? [] : {};
-		for (const key in source) {
-			if (Object.prototype.hasOwnProperty.call(source, key)) {
-				if (typeof source[key] === 'object' && source[key] !== null) {
-					target[key] = deepClone(source[key]);
-				} else {
-					target[key] = source[key];
-				}
+	}
+}
+function setEscape(type , origin , target){
+	let setEscaper = document.createElement("code");
+	setEscaper.className=type;
+	setEscaper.innerHTML=HtmlUtil.html2Escape(Array.from(origin.childNodes).find(node => node.nodeType === Node.COMMENT_NODE && node.textContent.trim()).textContent.trim());
+	target.appendChild(setEscaper);
+	hljs.highlightElement(setEscaper);
+	return;
+}
+function flomoer(name,type){
+	if(name==undefined)name="flomo";
+	if(type==undefined)type="language-html";
+	while(document.getElementsByClassName(name).length>0){
+		let i=document.getElementsByClassName(name)[0];
+		let flomotimer=setInterval(() =>{
+			if(i.parentNode.open){
+				clearInterval(flomotimer);
+				setEscape(type,i,i);
 			}
-		}
-		return target;
+		},100);
+		i.setAttribute("class",name+"ed");
 	}
-	inited = false;
-	async function init() {
-		if(inited)return;
-		const tasks = [
-			// 要运行的函数数组
-			()=>Engines("change")(initdoc),
-			()=>{for(let i of document.getElementById("rooter").children){i.setAttribute("class","card")}},
-			()=>fontswitch(0, document.body),
-			()=>fontswitch(2, document.getElementsByTagName("code")),
-			()=>backgrounder(window.starail, "left"),
-			()=>NodeMove(document.adoptNode(document.getElementById("sourcebrowsefir")),document.getElementById("rooter"),"inner"),
-			()=>NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before"),
-			pbrowser,highlightjser,vuemarkdown,flomoer,baser,imgonerror,print_PerformanceEntries
-		];
-		const annotatedTasks=[vditorinit,erudaer,vconsoler,MathJax.typeset,inboxerhelp];
-		while (tasks.length > 0) {
-			if (navigator.scheduling.isInputPending()) {
-				await new Promise(resolve => {setTimeout(resolve, 0)});
+}
+function print_PerformanceEntries() {
+	// See: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry#Example
+	// Use getEntries() to get a list of all performance entries
+	function print_PerformanceEntry(perfEntry) {
+		let properties = ["name","entryType","startTime","duration"];
+		for (let i=0; i < properties.length; i++) {
+			// Check each property
+			let supported = properties[i] in perfEntry;
+			if (supported) {
+				let value = perfEntry[properties[i]];
+				console.log("... " + properties[i] + " = " + value);
 			} else {
-				(tasks.shift())();
+				console.log("... " + properties[i] + " is NOT supported");
 			}
 		}
-		console.log("init",new Date().getTime()-startime,"ms");
-		inited = true;
 	}
-	let initer = setInterval(() =>{
-		if(document.readyState == "loading")document.addEventListener("DOMContentLoaded", init);
-		else if(document.readyState=="interactive")window.onload = (event)=>{
-			init();	
-			console.log(event);
-			NodeMove(document.createTextNode(event.timeStamp+" ms"),document.getElementById("timeused"),"before");
+	console.groupCollapsed(PerformanceEntry);
+	let p = performance.getEntries();
+	for (let i=0; i < p.length; i++) {
+		console.log("PerformanceEntry[" + i + "]");
+		print_PerformanceEntry(p[i]);
+	}
+	console.groupEnd();
+}
+function sleep(milliseconds) {
+	const date = Date.now();
+	do {
+		let currentDate = Date.now();
+	} while (currentDate - date < milliseconds);
+}
+function deepClone(source) {
+	if (typeof source !== 'object' || source == null) {
+		return source;
+	}
+	const target = Array.isArray(source) ? [] : {};
+	for (const key in source) {
+		if (Object.prototype.hasOwnProperty.call(source, key)) {
+			if (typeof source[key] === 'object' && source[key] !== null) {
+				target[key] = deepClone(source[key]);
+			} else {
+				target[key] = source[key];
+			}
 		}
-		else{
-			setTimeout(init, 2048);
-			clearInterval(initer);
+	}
+	return target;
+}
+inited = false;
+async function init() {
+	if(inited)return;
+	const tasks = [
+		// 要运行的函数数组
+		()=>{
+			Engines("base").appendChild((function (o){
+				o=document.createElement("textarea");
+				o.id="Enjoy";
+				o.addEventListener('input', (e) => {
+					window.textareaAutoHigh = (window.textareaAutoHigh==undefined)?true:window.textareaAutoHigh;
+					if(window.textareaAutoHigh){
+						o.style.height = '200px';
+						o.style.height = e.target.scrollHeight + 'px';
+					}
+				})
+				return o;
+			})());
+			Engines("base").appendChild(document.createElement("br"));
+			Engines("base").appendChild((function (o){
+				o=document.createElement("button");
+				o.addEventListener('click',()=>{
+					Engines(document.querySelector('#Enjoy').value)
+				})
+				o.innerHTML="enjoy!";
+				return o;
+			})());
+		},
+		()=>{for(let i of document.getElementById("rooter").children){i.setAttribute("class","card")}},
+		()=>fontswitch(0, document.body),
+		()=>fontswitch(2, document.getElementsByTagName("code")),
+		()=>backgrounder(window.starail, "left"),
+		()=>NodeMove(document.adoptNode(document.getElementById("sourcebrowsefir")),document.getElementById("rooter"),"inner"),
+		()=>NodeMove(document.adoptNode(document.getElementById("document").parentNode),document.getElementById("sourcebrowsefir"),"before"),
+		pbrowser,highlightjser,vuemarkdown,flomoer,baser,imgonerror,print_PerformanceEntries
+	];
+	const annotatedTasks=[vditorinit,erudaer,vconsoler,MathJax.typeset,inboxerhelp];
+	while (tasks.length > 0) {
+		if (navigator.scheduling.isInputPending()) {
+			await new Promise(resolve => {setTimeout(resolve, 0)});
+		} else {
+			(tasks.shift())();
 		}
-		console.log(document.readyState,new Date().getTime()-startime,"ms");
-	},200);
+	}
+	console.log("init",new Date().getTime()-startime,"ms");
+	inited = true;
+}
+let initer = setInterval(() =>{
+	if(document.readyState == "loading")document.addEventListener("DOMContentLoaded", init);
+	else if(document.readyState=="interactive")window.onload = (event)=>{
+		init();	
+		console.log(event);
+		NodeMove(document.createTextNode(event.timeStamp+" ms"),document.getElementById("timeused"),"before");
+	}
+	else{
+		setTimeout(init, 2048);
+		clearInterval(initer);
+	}
+	console.log(document.readyState,new Date().getTime()-startime,"ms");
+},200);
 </script>
 
 <ul id="rooter">
 	<li id="Engines">
 		<script>
 			function Engines(Enjoy){
-				const base=document.querySelector('#Engines'),sel=()=>document.getElementsByClassName("EnginesContent")[document.getElementsByClassName("EnginesContent").length-1],val=()=>Engines("sel")().value;
+				const base=document.querySelector("#Engines"),
+				sel=(subscript=document.querySelectorAll(".EnginesContent").length-1)=>document.querySelectorAll(".EnginesContent")[subscript],
+				val=(subscript)=>Engines("sel")(subscript).value;
+				function fixedarea(){
+					window.textareaAutoHigh = !window.textareaAutoHigh;
+				}
 				function newarea(value,target=Engines("base")){
+					window.textareaAutoHigh = (window.textareaAutoHigh==undefined)?true:window.textareaAutoHigh;
 					let Content=document.createElement("textarea");
 					Content.setAttribute("class","EnginesContent");
-					Content.setAttribute("rows",15);
-					Content.setAttribute("cols","40%");
+					if(!window.textareaAutoHigh){
+						Content.setAttribute("rows","20");
+						// Content.setAttribute("cols","40%");
+					}
 					Content.value=value;
+					Content.addEventListener('input', (e) => {
+						window.textareaAutoHigh = (window.textareaAutoHigh==undefined)?true:window.textareaAutoHigh;
+						if(window.textareaAutoHigh){
+							Content.style.height = '200px';
+							Content.style.height = e.target.scrollHeight + 'px';
+						}
+					})
 					target.appendChild(Content);
 					return Content;
 				}
@@ -817,9 +927,9 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 					Anchor.target ="_blank";
 					Anchor.click();
 				}
-				function give(obj=Engines("val")(),port=3000){
+				function give(obj=Engines("val")(),filename="foo.txt",port=3000){
 					let giver = new FormData();
-					giver.append("file", new File([obj], "foo.txt", {type: "text/plain",}));
+					giver.append("file", new File([obj], filename, {type: "text/plain",}));
 					let request = new XMLHttpRequest();
 					request.open("POST", `http://0.0.0.0:${port}/upload`);
 					request.send(giver);
@@ -865,7 +975,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 				let n=newopen,d=deleted,s=download,i=insert,up=upload;
 				return eval(Enjoy);
 			}
-			let initdoc='<textarea id="Enjoy" cols="40%" rows="24"></textarea><br /><button onclick="Engines(document.getElementById(\'Enjoy\').value)">enjoy!</button>';
+			let initdoc='';
 		</script>
 	</li>
 	<li>
@@ -959,6 +1069,108 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			<li>1053603690</li>
 			<li>QQ：1509592414</li>
 			<li>QQ 邮箱:1509592414@qq.com</li>
+		</ul>
+	</li>
+	<li><h3>noip</h3>
+		<ul>
+		<li>noip todoist
+			<ul>
+			<li>普及/提高-
+				<ul>
+				<li><a href="https://www.luogu.com.cn/problem/P1835">P1835 素数密度 - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P1113">P1113 杂务 - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P1807">P1807 最长路 - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P2853">P2853 [USACO06DEC] Cow Picnic S - 洛谷 | 计算机科学教育新生态</a></li>
+				</ul>
+			</li>
+			<li>普及+/提高
+				<ul>
+				<li><a href="https://www.luogu.com.cn/problem/P1414">P1414 又是毕业季II - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P1072">P1072 [NOIP2009 提高组] Hankson 的趣味题 - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P1069">P1069 [NOIP2009 普及组] 细胞分裂 - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P1314">P1314 [NOIP2011 提高组] 聪明的质监员 - 洛谷 | 计算机科学教育新生态</a></li>
+				<li><a href="https://www.luogu.com.cn/problem/P1621">P1621 集合 - 洛谷 | 计算机科学教育新生态</a></li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+		<li>attention
+			<ol start="0">
+			<li>"01问题"</li>
+			<li>变量开long long 时，scanf和printf的修饰符是%lld.</li>
+			<li>写线段树时注意交集/并集的条件</li>
+			<li>计算机操作速度 $v \in (10 MOPS,100 MOPS)=(1 \times 10^7OPS,1 \times 10^8OPS)$ （一条代码执行一次为$1OPS$）每秒，而运算时间超出1s就会报$TLE$,所以选择算法时要保证时间复杂度</li>
+			<li>空间复杂度=变量/数组（数据类型*数组长度），占用超出题目所给空间（一般为$125MB$）就会报$MLE$</li>
+			<li>#todo 高精度</li>
+			</ol>
+		</li>
+		<li>一些算法
+			<ul>
+				<li>贪心算法
+					<ul>
+						<li>在问题的任何一个状态，总选择当下最好的选择，“今朝有酒今朝醉”</li>
+						<li>不保证得到整体最优解</li>
+						<li>问题应具有无后效性</li>
+					</ul>
+				</li>
+				<li>二分
+					<ul>
+						<li>时间复杂度为$O(log n)$</li>
+						<li>二分过程</li>
+						<li>二分答案
+							<ul>
+								<li>最小的最大/最大的最小</li>
+								<li>找到某命题$P(x)$成立/不成立的临界值</li>
+								<li>在临界值一侧$P(x)$全为真，另一侧全为假</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					
+				</li>
+			</ul>
+		</li>
+		<li id="noip_inner">noip templater
+			<script>
+				internet("./noip.html",text => {
+					let Node=document.createElement("ul");
+					Node.innerHTML = text;
+					NodeMove(Node,document.getElementById("noip_inner"),"inner");
+					flomoer("cpphelp","language-cpp");
+				});
+			</script>
+		</li>
+		<li>luogu fav
+			<ul>
+			<li><a href="https://www.luogu.com.cn/problem/P3209">P3209 [HNOI2010] 平面图判定 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/blog/StudyingFather/noi-technical-faq">NOI 系列赛常见技术问题整理 - Studying Father&#39;s luogu blog - 洛谷博客</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P1871">P1871 对撞机 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/blog/195331/Sublime-User-Guide">Re:从零开始教你使用 Sublime Text - 菜MKのblog - 洛谷博客</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P8308">P8308 〈 TREEのOI 2022 Spring 〉Counting By Ternary - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P4314">P4314 CPU 监控 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA） - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P6192">P6192 【模板】最小斯坦纳树 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/blog/203623/guan-yu-da-biao">浅谈打表与其技巧 - - 洛谷博客</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P5229">P5229 [AHOI2013] 立方体 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/solution/P7812">P7812 [JRKSJ R2] Dark Forest - 洛谷 | 计算机科学教育新生态</a>
+			<li><a href="https://www.luogu.com.cn/problem/P2024">P2024 [NOI2001] 食物链 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P8883">P8883 幻想中成为原神 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P1727">P1727 计算π - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P2765">P2765 魔术球问题 - 洛谷 | 计算机科学教育新生态</a></li>
+			<li><a href="https://www.luogu.com.cn/problem/P3865">P3865 【模板】ST 表 &amp;&amp; RMQ 问题 - 洛谷 | 计算机科学教育新生态</a></li>
+			</ul>
+		</li>
+		<li>oi wiki
+			<ul>				
+			<li><a href="https://zhuanlan.zhihu.com/p/104538819">现代优化算法三部曲 | 模拟退火算法 - 知乎</a></li>
+			<li><a href="https://oi-wiki.org/misc/simulated-annealing/">模拟退火 - OI Wiki</a></li>
+			<li><a href="https://oi-wiki.org/ds/hash/">哈希表 - OI Wiki</a></li>
+			<li><a href="https://oi-wiki.org/string/automaton/">自动机 - OI Wiki</a></li>
+			<li><a href="https://oi-wiki.org/math/number-theory/sieve/#线性筛法">筛法 - OI Wiki</a></li>
+			<li><a href="https://oi-wiki.org/basic/merge-sort/">归并排序 - OI Wiki</a></li>
+			</ul>
+		</li>
 		</ul>
 	</li>
 	<li>不小的愿望
@@ -1149,6 +1361,7 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 			<li><a href="javascript:for (let i of document.getElementsByTagName('a')) {window.open(i.href);}">restart bookmarks</a></li>
 			<li><a href="http://ic.arc.nasa.gov/projects/remote-agent/">ic.arc.nasa.gov</a></li>
 			<li><a href="https://www.stsci.edu/">Home | STScI</a></li>
+			<li><a href="https://github.com/HUAWEIOpen/openarkcompiler">HUAWEIOpen/openarkcompiler: 方舟编译器</a></li>
 			<li><a href="https://github.com/alexiaChen/YinWangBak/blob/master/让科学和理性回到计算机科学.md">YinWangBak/让科学和理性回到计算机科学.md at master · AlexiaChen/YinWangBak · GitHub</a></li>
 			<li><a href="https://yinwang0.wordpress.com/2011/04/14/unix/">Limitations of the Unix philosophy and the ultimate solution to parsing – Surely I Am Joking</a></li>
 			<li><a href="https://cloud.tencent.com/developer/article/1543945">收藏这些API，获取网易云音乐数据超轻松-腾讯云开发者社区-腾讯云</a></li>
@@ -1201,36 +1414,6 @@ MathJax.Hub.Config(window.mathjaxconfig);`
 				<li><a href="https://www.zhihu.com/question/27955180?sort=created&utm_id=0">什么是 AdS / CFT ？ - 知乎</a></li>
 				</ul>
 			</li>
-			<li><h3>noip</h3>
-					<ul>
-					<li>luogu
-						<ul>
-						<li><a href="https://www.luogu.com.cn/problem/P3209">P3209 [HNOI2010] 平面图判定 - 洛谷 | 计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/blog/StudyingFather/noi-technical-faq">NOI 系列赛常见技术问题整理 - Studying Father&#39;s luogu blog - 洛谷博客</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/P1871">P1871 对撞机 - 洛谷 | 计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/blog/195331/Sublime-User-Guide">Re:从零开始教你使用 Sublime Text - 菜MKのblog - 洛谷博客</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/P8308">P8308 〈 TREEのOI 2022 Spring 〉Counting By Ternary - 洛谷 |
-								计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/P4314">P4314 CPU 监控 - 洛谷 | 计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA） - 洛谷 | 计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/P6192">P6192 【模板】最小斯坦纳树 - 洛谷 | 计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/blog/203623/guan-yu-da-biao">浅谈打表与其技巧 - - 洛谷博客</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/P5229">P5229 [AHOI2013] 立方体 - 洛谷 | 计算机科学教育新生态</a></li>
-						<li><a href="https://www.luogu.com.cn/problem/solution/P7812">P7812 [JRKSJ R2] Dark Forest - 洛谷 | 计算机科学教育新生态</a>
-						<li><a href="https://www.luogu.com.cn/problem/P2024">P2024 [NOI2001] 食物链 - 洛谷 | 计算机科学教育新生态</a></li>			
-						</ul>
-					</li>
-					<li>oi wiki
-						<ul>				
-						<li><a href="https://zhuanlan.zhihu.com/p/104538819">现代优化算法三部曲 | 模拟退火算法 - 知乎</a></li>
-						<li><a href="https://oi-wiki.org/misc/simulated-annealing/">模拟退火 - OI Wiki</a></li>
-						<li><a href="https://oi-wiki.org/ds/hash/">哈希表 - OI Wiki</a></li>
-						<li><a href="https://oi-wiki.org/string/automaton/">自动机 - OI Wiki</a></li>
-						<li><a href="https://oi-wiki.org/math/number-theory/sieve/#%E7%BA%BF%E6%80%A7%E7%AD%9B%E6%B3%95">筛法 - OI Wiki</a></li>
-						<li><a href="https://oi-wiki.org/basic/merge-sort/">归并排序 - OI Wiki</a></li>
-						</ul>
-					</li>
-					</ul>
 			<li><h3>tensor</h3>
 					<ul>
 					<li><a href="https://www.zhihu.com/question/20695804">什么是张量(tensor)？ - 知乎</a></li>
@@ -2416,930 +2599,6 @@ int lcm(int a, int b)
 	return a * b / gcd(a, b);
 }
 				--></pre></details>
-			</li>
-			<li><details><summary>高精度加法</summary>
-				<pre class="cpphelp"><!--
-int a[510],b[510],c[510];
-int main(){
-	// highadd
-	string m,n;
-	cin>>m>>n;
-	a[0]=m.length();
-	b[0]=n.length();
-	for(int i=1;i<=a[0];i++){
-		a[i]=m[a[0]-i]-'0';
-	}
-	for(int i=1;i<=b[0];i++){
-		b[i]=n[b[0]-i]-'0';
-	}
-	int len=a[0]>b[0]?a[0]:b[0];
-	for(int i=1;i<=len;i++){
-		if(a[i]+b[i]+c[i]>=10){
-			c[i+1]++;
-			c[i]-=10;
-		}
-		c[i]=a[i]+b[i]+c[i];
-	}
-	if(c[len+1]!=0)len++;
-	for(int i=len;i>0;i--){
-		cout<<c[i];
-	}
-	// system("pause");
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>高精度减法</summary>
-				<pre class="cpphelp"><!--
-int a[10100],b[10100],c[10100];
-int main(){
-	// highminus
-	string m,n;
-	bool flag=0;
-	cin>>m>>n;
-	if((m.length()<n.length())||((m.length()==n.length())&&(m<n))){
-		flag=1;
-		string temp=m;
-		m=n;
-		n=temp;
-	}
-	a[0]=m.length();
-	b[0]=n.length();
-	for(int i=1;i<=a[0];i++){
-		a[i]=m[a[0]-i]-'0';
-	}
-	for(int i=1;i<=b[0];i++){
-		b[i]=n[b[0]-i]-'0';
-	}
-	int len=m.length();
-	for(int i=1;i<=len;i++){
-		if(a[i]<b[i]){
-			a[i+1]--;
-			a[i]+=10;
-		}
-		c[i]=a[i]-b[i];
-	}
-	while(c[len]==0&&len>1){
-		len--;
-	}
-	if(flag)cout<<'-';
-	for(int i=len;i>0;i--){
-		cout<<c[i];
-	}
-	system("pause");
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>高精度乘高精度</summary>
-				<pre class="cpphelp"><!--
-int a[10100],b[10100],c[10100];
-int main(){
-	// hightimes
-	string m,n;
-	cin>>m>>n;
-	a[0]=m.length();
-	b[0]=n.length();
-	for(int i=1;i<=a[0];i++){
-		a[i]=m[a[0]-i]-48;
-	}
-	for(int i=1;i<=b[0];i++){
-		b[i]=n[b[0]-i]-48;
-	}	
-	for(int i=1;i<=a[0];i++){
-		for(int j=1;j<=b[0];j++){
-			if(a[i]*b[j]+c[i+j-1]>=10){
-				c[i+j]+=(a[i]*b[j]+c[i+j-1])/10;
-			}
-			c[i+j-1]=(a[i]*b[j]+c[i+j-1])%10;
-		}
-	}
-	int len=a[0]+b[0];
-	while(c[len]==0&&len>1){
-		len--;
-	}
-	for(int i=len;i>0;i--){
-		cout<<c[i];
-	}
-	system("pause");
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>高精度除以低精度</summary>
-				<pre class="cpphelp"><!--
-int a[5010],c[5010];
-long long b,r=0;
-int main(){
-	// highdevidelow
-	string m;
-	cin>>m>>b;
-	a[0]=m.length();
-	for(int i=1;i<=a[0];i++){
-		a[i]=m[i-1]-48;
-	}
-	for(int i=1;i<=a[0];i++){
-		c[i]=(r*10+a[i])/b;
-		r=(r*10+a[i])%b;
-	}
-	int len=1;
-	while(c[len]==0&&len<a[0]){
-		len++;
-	}
-	for(int i=len;i<=a[0];i++){
-		cout<<c[i];
-	}
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>高精度除以高精度</summary>
-				<pre class="cpphelp"><!--
-int a[10010],b[10010],c[10010],temp[10010];
-void _copy(int a1[],int b1[],int _count);
-bool compare(int a1[],int b1[]);
-void sub(int a1[],int b1[]);
-int main(){
-	// highdevidehigh
-	string m,n;
-	cin>>m>>n;
-	a[0]=m.length();
-	b[0]=n.length();
-	c[0]=a[0]-b[0]+1;
-	for(int i=1;i<=a[0];i++){
-		a[i]=m[i-1]-'0';
-	}
-	for(int i=1;i<=b[0];i++){
-		b[i]=n[i-1]-'0';
-	}
-	for(int i=1;i<=c[0];i++){
-		memset(temp,0,sizeof(temp));
-		_copy(b,temp,i-1);
-		a[0]=temp[0];
-		while(compare(a,temp)){
-			c[i]++;
-			sub(a,temp);
-		}
-	}
-	int len=1;
-	while(c[len]==0&&len<c[0]){
-		len++;
-	}
-	for(int i=len;i<=c[0];i++){
-		cout<<c[i];
-	}
-	if(c[0]<0)cout<<0;
-	return 0;
-}
-void _copy(int a1[],int b1[],int _count){
-	for(int i=1;i<=a1[0];i++){
-			b1[i+_count]=a1[i];
-	}
-	b1[0]=a1[0]+_count;
-}
-bool compare(int a1[],int b1[]){
-	if(a1[0]>b1[0])return 1;
-	else if(a1[0]<b1[0])return 0;
-	else{
-		for(int i=1;i<=a1[0];i++){
-			if(a1[i]>b1[i])return 1;
-			if(a1[i]<b1[i])return 0;
-		}
-	}
-	return 1;
-}
-void sub(int a1[],int b1[]){
-	for(int i=a1[0];i>0;i--){
-		if(a1[i]-b1[i]<0){
-			a1[i-1]--;
-			a1[i]+=10;
-		}
-		a1[i]-=b1[i];
-	}
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>highall</summary>
-				<pre class="cpphelp"><!--
-#include<iostream>
-#include<cstdio>
-#include<cstring> 
-using namespace std;
-
-struct data{
-	int num[20100];
-	int len;
-	char op;
-	data(){memset(num,0,sizeof(num)); len=1; op='+';}
-};
-
-data turn(int b){
-	int t=0;
-	data c;
-	while(b){
-		t++;
-		c.num[t]=b%10;
-		b/=10;
-	}
-	c.len=t;
-	return c;
-}
-
-bool operator > (data a,data b){
-	if(a.op=='+' && b.op=='-') return 1;
-	if(a.op=='-' && b.op=='+') return 0;
-	if(a.len>b.len) return 1;
-	if(a.len<b.len) return 0;
-	if(a.op=='-'&&b.op=='-'){
-		for(int i=a.len;i>=1;i--){
-			if(a.num[i]>b.num[i]) return 0;
-			else if(a.num[i]<b.num[i]) return 1;
-			else continue;
-		}
-	} 
-	if(a.op=='+'&&b.op=='+'){
-		for(int i=a.len ;i>=1;i--){
-			if(a.num[i]>b.num[i]) return 1;
-			else if(a.num[i]<b.num[i]) return 0;
-			else continue;
-		}
-	}
-	return 0;
-}
-
-bool operator < (data a,data b){
-	if(a.op=='+' && b.op=='-') return 0;
-	if(a.op=='-' && b.op=='+') return 1;
-	if(a.len>b.len) return 0;
-	if(a.len<b.len) return 1;
-	if(a.op=='-'&&b.op=='-'){
-		for(int i=a.len;i>=1;i--){
-			if(a.num[i]>b.num[i]) return 1;
-			else if(a.num[i]<b.num[i]) return 0;
-			else continue;
-		}
-	}
-	if(a.op=='+'&&b.op=='+'){
-		for(int i=a.len ;i>=1;i--){
-			if(a.num[i]>b.num[i]) return 0;
-			else if(a.num[i]<b.num[i]) return 1;
-			else continue;
-		}
-	}
-	return 0;
-}
-
-bool operator == (data a,data b){
-	if(a.len==b.len){
-		for(int i=a.len;i>=1;i--){
-			if(a.num[i]!=b.num[i]) return 0;
-		}
-		return 1;
-	}
-	return 0;
-}
-
-data operator + (data a,data b){
-	data c;
-	c.len=max(a.len,b.len);
-	for(int i=1;i<=c.len;i++)
-		c.num[i]=a.num[i]+b.num[i];
-	for(int i=1;i<=c.len;i++){
-		if(c.num[i]>=10){
-			c.num[i+1]+=c.num[i]/10;
-			c.num[i]%=10;
-			c.len=max(c.len,i+1);
-		}
-	}	
-	return c;
-}
-
-data operator - (data a,data b){
-	data c,tmp;
-	c.len=max(a.len,b.len);
-	if(b>a){
-		c.op='-';
-		tmp=a, a=b, b=tmp;
-	}
-	for(int i=1;i<=c.len;i++)
-		c.num[i]=a.num[i]-b.num[i];
-	for(int i=1;i<=c.len;i++){
-		if(c.num[i]<0){
-			c.num[i]+=10;
-			c.num[i+1]-=1;
-		}
-	}
-	return c;
-}
-
-data operator *(data a,data b){
-	data c;
-	c.len=a.len+b.len+1;
-	for(int i=1;i<=a.len;i++){
-		for(int j=1;j<=b.len;j++){
-			c.num[i+j-1]+=a.num[i]*b.num[j];
-		}
-	}
-	for(int i=1;i<=c.len;i++){
-		if(c.num[i]>=10){
-			c.num[i+1]+=c.num[i]/10;
-			c.num[i]%=10;
-			c.len=max(c.len,i+1);
-		}
-	}
-	return c;
-}
-
-data cpy(data a,int l){
-	data b;
-	for(int i=1;i<=a.len;i++)
-		b.num[i+l-1]=a.num[i];
-	b.len=a.len+l-1;
-	b.op='+';
-	return b;
-}
-
-data operator /(data a, data b){
-	data c;
-	c.len=a.len-b.len+1;
-	for(int i=c.len;i>=1;i--){
-		data t=cpy(b,i);
-		while(a>t||a==t){
-			c.num[i]++;
-			a=a-t;
-			while(a.len>0&&!a.num[a.len]) a.len --;
-		}
-	}	
-	while(c.len>0&&!c.num[c.len]) c.len--;
-	return c;
-} 
-
-data operator %(data a,data b){
-	for(int i=a.len-b.len+1;i>=1;i--){
-		data t=cpy(b,i);
-		while(a>t||a==t){
-			if(a==t) break;
-			a=a-t;
-			while(a.len>0&&!a.num[a.len]) a.len--;
-		}
-	}
-	if(a==b) return turn(0);
-	else return a;
-}
-
-void get_data(data &a,data &b){
-	string s1,s2; cin>>s1>>s2;
-	if(s1[0]=='-') a.op='-',s1.erase(0,1) ;
-	if(s2[0]=='-') b.op='-',s2.erase(0,1) ;
-	for(int i=1;i<=s1.size() ;i++)
-		a.num[i]=s1[s1.size()-i]-'0';
-	a.len=s1.size() ;
-	for(int i=1;i<=s2.size() ;i++)
-		b.num[i]=s2[s2.size()-i]-'0';
-	b.len=s2.size();
-}
-
-void print(data c){
-	if(c.op=='-') printf("-");
-	bool flag=0;
-	for(int i=c.len ;i>=1;i--){
-		if(c.num[i]!=0||flag==1){
-			printf("%d",c.num[i]);
-			flag=1;
-		}
-	}
-	if(flag==0) printf("0");
-	printf("\n");	
-}
-
-int main(){
-	data a,b,c;
-	get_data(a,b);
-	c=a+b; print(c);
-	c=a-b; print(c);
-	c=a*b; print(c);
-	c=a/b; print(c);
-	c=a%b; print(c);
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>highFibonacii</summary>
-				<pre class="cpphelp"><!--
-#include<bits/stdc++.h>
-using namespace std;
-int a[1005],b[1005],c[1005],m[1005],n[1005],lena=1,lenb=1,lenc;
-
-void addhigh(){
-	int len=lena>lenb?lena:lenb;
-	for(int i=1;i<=len;i++){
-	c[i]=a[i]+b[i]+c[i];
-		if(c[i]>=10){
-			c[i+1]++;
-			c[i]%=10;
-		} 
-	} 
-	if(c[len+1])lenc=len+1;
-	else lenc=len;
-}
-int main(){
-	int N;
-	cin>>N;
-	a[1]=0,b[1]=1; 
-	for(int i=1;i<=N;i++){
-		addhigh();
-		for(int j=1;j<=lenb;j++){
-			a[j]=b[j];
-		}
-		for(int j=1;j<=lenc;j++){
-			b[j]=c[j];
-		}
-		lena=lenb;
-		lenb=lenc;
-		lenc=0;
-		memset(c,0,sizeof(c));
-	}
-	for(int i=lenb;i>0;i--){
-		cout<<b[i];
-	}
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>RecursiveFractalTriangle</summary>
-				<pre class="cpphelp"><!--
-#include<iostream>
-using namespace std;
-char s[2048][2048];
-
-void transfer(int i, int x, int y) {
-	int h = (1 << (i - 1)), w = 1 << i;
-	if (i == 1) {
-		s[y - 1][x - 3] = ' ', 
-		s[y - 1][x - 2] = '/', 
-		s[y - 1][x - 1] = '\\', 
-		s[y - 1][x] = ' ';
-		s[y][x - 3] = '/', 
-		s[y][x - 2] = '_', 
-		s[y][x - 1] = '_', 
-		s[y][x] = '\\';
-		return;
-	}
-	transfer(i - 1, x, y);
-	transfer(i - 1, x - w, y);
-	transfer(i - 1, x - w / 2, y - h);
-}
-int main() {
-	int n;
-	while (~scanf("%d", &n)) {
-		int x = 1 << (n + 1), y = (1 << n);
-		for (int i = 1; i <= y; i++)
-			for (int j = 1; j <= x; j++) s[i][j] = ' ';
-		transfer(n, x, y);
-		for (int i = 1; i <= y; i++) {
-			for (int j = 1; j <= x; j++) putchar(s[i][j]);
-			puts("");
-		}
-	}
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>ZeroOnePack</summary>
-				<pre class="cpphelp"><!--
-int Dp[105][1005],value[1005],spac[1005];
-int main(){
-	int m,n;
-	cin>>m>>n;
-	for(int i=1;i<=n;i++){
-	cin>>spac[i]>>value[i];
-	}
-	for(int i=1;i<=n;i++){
-	for(int j=0;j<=m;j++){
-		if(j<spac[i])Dp[i][j]=Dp[i-1][j];
-		else {
-		Dp[i][j]=max(Dp[i-1][j],Dp[i-1][j-spac[i]]+value[i]);
-		}
-	}
-	}
-	cout<<Dp[n][m];
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>MixPack</summary>
-				<pre class="cpphelp"><!--
-#include <iostream>
-#include <algorithm>
-using namespace std;
-int Ts1, Ts2, Te1, Te2, Tm, n, Ti, Ci, Pi, dp[65536];
-
-// void ZeroOnePack(int dp[], int T, int C)
-// {
-//	 for (int j = Tm; j >= i; j--)
-//	 {
-//		 dp[j] = max(dp[j], dp[j - T] + C);
-//	 }
-//	 return;
-// }
-void CompletePack(int dp[], int T, int C)
-{
-	for (int j = T; j <= Tm; j++)
-	{
-		dp[j] = max(dp[j], dp[j - T] + C);
-	}
-
-	return;
-}
-void MultiplePack(int dp[], int T, int C, int P)
-{
-	for (int k = 1; k <= P; k++)
-	{
-		for (int j = Tm; j >= T; j--)
-		{
-			dp[j] = max(dp[j], dp[j - T] + C);
-		}
-	}
-	return;
-}
-
-int main()
-{
-	scanf("%d:%d %d:%d %d\n", &Ts1, &Ts2, &Te1, &Te2, &n);
-	Tm = Te1 * 60 + Te2 - Ts1 * 60 - Ts2;
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> Ti >> Ci >> Pi;
-		if (Pi)
-			MultiplePack(dp, Ti, Ci, Pi);
-		else
-			CompletePack(dp, Ti, Ci);
-	}
-	printf("%d", dp[Tm]);
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>TreeTraverse</summary>
-				<pre class="cpphelp"><!--
-#include <iostream>
-#include <algorithm>
-using namespace std;
-struct tree
-{
-	int l, r,answer;
-} yee[100005];
-void DfsUp(int x)
-{
-	cout << yee[x].answer<<' ';
-	if(yee[x].l)DfsUp(yee[x].l);
-	if(yee[x].r)DfsUp(yee[x].r);
-}
-void DfsMiddle(int x)
-{
-	if(yee[x].l)DfsMiddle(yee[x].l);
-	cout << yee[x].answer<<' ';
-	if(yee[x].r)DfsMiddle(yee[x].r);
-}
-void DfsDown(int x)
-{
-	if(yee[x].l)DfsDown(yee[x].l);
-	if(yee[x].r)DfsDown(yee[x].r);
-	cout << yee[x].answer<<' ';
-}
-
-int main()
-{
-	int n;
-	cin >> n;
-	for (int i = 1; i <= n; i++){
-		cin >> yee[i].l >> yee[i].r;
-		yee[i].answer = i;
-	}
-	DfsUp(1);
-	cout << endl;
-	DfsMiddle(1);
-	cout << endl;
-	DfsDown(1);
-	return 0;
-}
-				--></pre></details>
-			</li>
-			<li><details><summary>graph</summary>
-				<pre class="cpphelp"><!--// Binary Tree Traversal
-#include <cstdio>
-#include <cstring>
-#include <vector>
-#include <queue>
-#include <algorithm>
-using namespace std;
-int n, m, answer;
-vector<int> blog[1 << 17];
-bool visiter[1 << 17];
-queue<int> q;
-void dfs(int x, int times)
-{
-	if (times == n)
-	{
-		return;
-	}
-	printf("%d ", x);
-	visiter[x] = 1;
-	for (auto i : blog[x])
-	{
-		if (!visiter[i])
-			dfs(i, times + 1);
-	}
-}
-void bfs(int x)
-{
-	memset(visiter, 0, sizeof(visiter));
-	visiter[x] = 1;
-	q.push(x);
-	while (!q.empty())
-	{
-		int u = q.front();
-		q.pop();
-		printf("%d ", u);
-		for (auto i : blog[u])
-		{
-			if (!visiter[i])
-			{
-				visiter[i] = 1;
-				q.push(i);
-			}
-		}
-	}
-}
-int main()
-{
-	scanf("%d%d", &n, &m);
-	for (int i = 0; i < m; i++)
-	{
-		int X, Y;
-		scanf("%d%d", &X, &Y);
-		blog[X].push_back(Y);
-	}
-	for (int i = 0; i < m; i++)
-		sort(blog[i].begin(), blog[i].end());
-	dfs(1, 0);
-	printf("\n");
-	bfs(1);
-}--></pre>
-			</details></li>
-			<li><details>P1364<summary></summary>
-			<pre><!--//P1364
-#include <iostream>
-#include <cstring>
-#include <algorithm>
-using namespace std;
-struct Node{
-	int w, l, r, a;
-} tree[128];
-bool vis[128];
-int answerfinally=0x3f3f3f3f,answer;
-inline void dfs(int x,int distance){
-	answer += tree[x].w*distance;
-	int l = tree[x].l, r = tree[x].r, a = tree[x].a;
-	if(l&&!vis[l]){
-		vis[l] = 1;
-		dfs(l,distance+1);
-	}
-	if(r&&!vis[r]){
-		vis[r] = 1;
-		dfs(r,distance+1);
-	}
-	if(a&&!vis[a]){
-		vis[a] = 1;
-		dfs(a,distance+1);
-	}
-}
-int main(){
-	int n;
-	cin >> n;
-	for (int i = 1; i <= n;i++){
-		cin >> tree[i].w >> tree[i].l >> tree[i].r;
-		tree[tree[i].l].a = i;
-		tree[tree[i].r].a = i;
-	}
-	for (int i = 1; i <= n;i++){
-		answer = 1;
-		memset(vis, 0, sizeof(vis));
-		vis[i] = 1;
-		dfs(i, 0);
-		answerfinally = min(answer, answerfinally);
-	}
-	cout << answerfinally-1;
-}--></pre></details></li>
-			<li><details><summary>DSU</summary>
-				<pre class="cpphelp"><!--//DSU
-int ancestor[5000], m, n, p;
-int finds(int x)
-{
-	return x == ancestor[x] ? x : finds(ancestor[x]);
-	// return x == ancestor[x]?x:ancestor[x] = finds(ancestor[x]);
-}
-int main()
-{
-	cin >> n >> m >> p;
-	for (int i = 1; i <= n; i++)
-		ancestor[i] = i;
-	for (int i = 1; i <= m; i++)
-	{
-		int Mi, Mj;
-		cin >> Mi >> Mj;
-		ancestor[finds(Mi)] = finds(Mj);
-	}
-	for (int i = 1; i <= p; i++)
-	{
-		int Pi, Pj;
-		cin >> Pi >> Pj;
-		if (finds(Pi) == finds(Pj))
-			cout << "Yes" << endl;
-		else
-			cout << "No" << endl;
-	}
-	return 0;
-}--></pre>
-			</details></li>
-			<li><details><summary>BinHexOct</summary>
-			<pre><!--//BinHexOct
-#include <iostream>
-using namespace std;
-
-namespace fir
-{
-#include <cmath>
-}
-
-int pow(int x, int y)
-{
-	int ans = 1;
-	while (y > 0)
-	{
-		if (y & 1 != 0)
-			ans *= x;
-		x *= x;
-		y >>= 1;
-	}
-	return ans;
-}
-
-int main()
-{
-	string iner;
-	int n, m, a = 0, j = 0, answer[1024] = {}, flag = 0;
-	cin >> n >> iner >> m;
-	if (iner[0] == '-')
-		flag = 1;
-	for (int i = flag; i < iner.length(); i++)
-		a += ((iner[i] >= 'A') ? (iner[i] - 'A' + 10) : (iner[i] - '0')) * fir::pow(n, iner.length() - i - 1);
-	if (flag)
-		a = -a;
-	while (a != 0)
-	{
-		answer[j++] = a % m;
-		a /= m;
-		if (m < 0 && answer[j - 1] < 0)
-		{
-			answer[j - 1] -= m;
-			a++;
-		}
-	}
-	for (int i = j - 1; i >= 0; i--)
-		cout << ((int)(answer[i] >= 10) ? (char)(answer[i] - 10 + 'A') : (char)(answer[i] + '0'));
-	return 0;
-}--></pre>
-			</details></li>
-			<li><details><summary>BinHexOct2</summary>
-				<pre><!--//BinHexOct2
-#include <iostream>
-#include <stack>
-using namespace std;
-
-int pow(int x, int y)
-{
-	int ans = 1;
-	while (y > 0)
-	{
-		if (y & 1 != 0)
-			ans *= x;
-		x *= x;
-		y >>= 1;
-	}
-	return ans;
-}
-
-int Char2Int(char target)
-{
-	return (target >= '0' && target <= '9') ? (target - '0') : (target - 'A' + 10);
-}
-
-char Int2Char(int target)
-{
-	return (target < 10) ? (target + '0') : (target - 10 + 'A');
-}
-
-int ConverN2T(string str, int n)
-{
-	int number = 0, flag = 0;
-	if (str[0] == '-')
-		flag = 1;
-	for (int i = flag; i < str.size(); i++)
-	{
-		number += Char2Int(str[i]) * pow(n, str.size() - i - 1);
-	}
-	if (flag)
-		number = -number;
-	return number;
-}
-
-void ConvertT2M(int number, int m)
-{
-	stack<char> s;
-	while (number != 0)
-	{
-		bool flag = 0;
-		if (m < 0 && (number % m < 0))
-		{
-			s.push(Int2Char(number % m - m));
-			flag = 1;
-		}
-		else
-			s.push(Int2Char(number % m));
-		number /= m;
-		if (flag)
-			number++;
-	}
-	if (s.empty())
-	{
-		cout << 0;
-	}
-	while (!s.empty())
-	{
-		cout << s.top();
-		s.pop();
-	}
-	cout << endl;
-}
-
-int main()
-{
-	string iner;
-	int n, m;
-	cin >> n >> iner >> m;
-	ConvertT2M(ConverN2T(iner, n), m);
-	return 0;
-}--></pre>
-				</details></li>
-			<li><details><summary>前缀和</summary>
-				<pre class="cpphelp"><!--// PrefixSum，P8218
-#include <iostream>
-using namespace std;
-
-int a[1 << 17], s[1 << 17];
-int main()
-{
-	int m, n;
-	cin >> n;
-	for (int i = 1; i <= n; i++)
-	{
-		cin >> a[i];
-		s[i] = s[i - 1] + a[i];
-	}
-	cin >> m;
-	for (int i = 0; i < m; i++)
-	{
-		int l, r;
-		cin >> l >> r;
-		cout << s[r] - s[l - 1] << endl;
-	}
-	return 0;
-}--></pre>
-			</details></li>
-			<li>时间复杂度：计算机操作速度为 10 MOPS——100 MOPS(1\*10^7OPS——1\*10^8OPS) （一条代码执行一次为1OPS）每秒，那么超出1s就会报TLE。</li>
-			<li>空间复杂度：变量/数组（数据类型*数组长度），占用超出题目所给空间（一般为125MB）就会报SLE。</li>
-			<li>一些算法
-				<ul>
-					<li>贪心算法
-						<ul>
-							<li>在问题的任何一个状态，总选择当下最好的选择，“今朝有酒今朝醉”</li>
-							<li>不保证得到整体最优解</li>
-							<li>问题应具有无后效性</li>
-						</ul>
-					</li>
-					<li>二分
-						<ul>
-							<li>时间复杂度为$O(log n)$</li>
-							<li>二分过程</li>
-							<li>二分答案
-								<ul>
-									<li>最小的最大/最大的最小</li>
-									<li>找到某命题$P(x)$成立/不成立的临界值</li>
-									<li>在临界值一侧$P(x)$全为真，另一侧全为假</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
 			</li>
 		</ul>
 		<script>flomoer("cpphelp","language-cpp");</script>
@@ -7826,11 +7085,11 @@ $$\begin{array}{c}
 - [Vue3 组件 | 菜鸟教程](https://www.runoob.com/vue3/vue3-components.html)
 				</vue-markdown>
 			</div>
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script> -->
-			<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css"> -->
-			<link rel="stylesheet" href="https://unpkg.com/katex/dist/katex.min.css">
 			<script id="beforeVue">
-				include("https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js");
+				// loader("https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js")
+				// loader("https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css",()=>{},"css");
+				loader("https://unpkg.com/katex/dist/katex.min.css",()=>{},"css");
+				loader("https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js");
 				new Vue({
 					el: '#vue-markdown',
 					data() {
@@ -9188,9 +8447,9 @@ setEscape("language-html",document.getElementById("docsify"),document.getElement
 	</ul>
 </li>
 <!-- <script>
-	// include("https://cdn.bootcdn.net/ajax/libs/vue/3.4.31/vue.js");
-	include("https://cdn.jsdelivr.net/npm/vue@3.4.33/dist/vue.global.prod.js");
-	include("https://cdn.bootcdn.net/ajax/libs/vue-markdown/2.2.4/vue-markdown.js");
+	// loader("https://cdn.bootcdn.net/ajax/libs/vue/3.4.31/vue.js");
+	loader("https://cdn.jsdelivr.net/npm/vue@3.4.33/dist/vue.global.prod.js");
+	loader("https://cdn.bootcdn.net/ajax/libs/vue-markdown/2.2.4/vue-markdown.js");
 	setTimeout(()=>{
 	Vue.use(VueMarkdown);
 	new Vue({
@@ -10594,6 +9853,13 @@ console.log(twoArgs.length); // 2</code></pre>
 			<li>https://groups.csail.mit.edu/mac/ftpdir/scheme-reports/r5rs-html/r5rs_8.html</li>
 			<li>https://wiki.call-cc.org/man/4/The%20R5RS%20standard</li>
 		</ol>
+	</li>
+	</ul>
+</li>
+<li>2024.08.16
+	<ul>
+	<li>5.0 前瞻，惊讶带惊喜</li>
+	<li><a href="https://ti.luogu.com.cn/problemset/1042">1042 - CSP 2023 提高级第一轮</a>
 	</li>
 	</ul>
 </li>
